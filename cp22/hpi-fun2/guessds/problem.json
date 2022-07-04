@@ -1,0 +1,13 @@
+{
+  "based_on": {
+    "data": [
+      "KIT problem"
+    ],
+    "type": "other"
+  },
+  "description": "interacive decide between stack or queue",
+  "difficulty": 2,
+  "tags": [
+    "implementation"
+  ]
+}

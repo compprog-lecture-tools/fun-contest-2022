@@ -1,0 +1,16 @@
+{
+  "based_on": {
+    "data": [
+      "cp19",
+      "week01",
+      "mirpal"
+    ],
+    "type": "old-problem"
+  },
+  "description": "Palindromes with some extra reversal mapping",
+  "difficulty": 1,
+  "tags": [
+    "implementation",
+    "strings"
+  ]
+}

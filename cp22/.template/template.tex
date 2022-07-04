@@ -1,0 +1,86 @@
+\documentclass[
+  a4paper,
+  12pt,
+  parskip=half,
+  headings=standardclasses,
+  footskip=0pt,
+  footlines=1,
+  headheight=80in
+]{scrartcl}
+\setlength{\textheight}{1.15\textheight}
+
+\input{metainfo-include.tex}
+
+\sloppy
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{paracol}
+\usepackage{palatino}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage[headsepline]{scrlayer-scrpage}
+\usepackage[most, listings]{tcolorbox}
+\usepackage{longtable}[=v4.13]
+\usepackage{tabu}
+\usepackage{upquote}
+\usepackage{tikz}
+\usetikzlibrary{shapes.misc, positioning}
+
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\hypersetup{%
+  colorlinks=true,
+  urlcolor=darkblue
+}
+
+\pagestyle{scrheadings}
+\setkomafont{pageheadfoot}{}
+\ohead{\small CompProg Lecture, Tobias Friedrich (HPI)}
+\ihead{\small ICPC Praktikum, Dorothea Wagner (KIT)}
+\cfoot{}
+
+\addtolength{\headheight}{-1.5em}
+\newcommand{\makeheader}{%
+  \columnratio{0.2,0.6,0.2}
+  \begin{paracol}{3}
+  \includegraphics[width=3cm]{kit-logo.pdf}
+  \switchcolumn
+  \center
+  {\Large\textbf{Competitive Programming SS22}}\\
+  \vspace{2mm}
+  \textbf{Submit until \deadline{} via the \href{https://domjudge.iti.kit.edu/main/login}{judge}}
+  \switchcolumn
+  \hfill
+  \includegraphics[width=3cm]{hpi-logo.pdf}\\
+  \end{paracol}
+
+  \noindent\textbf{Problem: \problemName{}} (\timelimit{} second timelimit) 
+}
+
+\newcommand{\placeholder}[1]{\textcolor{blue}{#1}}
+
+\newenvironment{samples}[1][1]{%
+  \noindent
+  \begin{longtabu} to \textwidth {@{}X[#1] X[1]@{}}
+    \textbf{Sample input} & \textbf{Sample output} \\
+}{%
+  \end{longtabu}
+}
+\newcommand{\sampleBox}[1]{%
+  % Using frame=empty doesn't work for listings broken across pages
+  \tcbinputlisting{listing file=#1, listing only, colframe=white, colback=black!10!white, sharp corners, box align=top}
+}
+\newcommand{\sample}[1]{%
+  \sampleBox{../testcases/#1.in} & \sampleBox{../testcases/#1.ans} \\
+}
+
+\newcommand{\bonusnotice}{%
+\textit{Note:} This is a bonus problem that is harder to solve than usual.
+Solve the other problems first before spending too much time on this one.
+
+\vspace{1em}
+}

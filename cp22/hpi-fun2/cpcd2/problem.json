@@ -1,0 +1,15 @@
+{
+  "based_on": {
+    "data": [
+      "803",
+      "C"
+    ],
+    "type": "codeforces"
+  },
+  "description": "Find strictly increasing sequence of k elements with sum n and maximmal gcd of elements",
+  "difficulty": 3,
+  "tags": [
+    "greedy",
+    "math"
+  ]
+}

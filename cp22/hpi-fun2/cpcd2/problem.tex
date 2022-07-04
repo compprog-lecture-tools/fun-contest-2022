@@ -1,0 +1,46 @@
+\input{template.tex}
+
+\usepackage{csquotes}
+
+\begin{document}
+
+\makeheader
+
+Another contest, another design approach.
+Last time, you had to make the best of the problems your TA's gave you, which you found awfully limiting.
+This time around, you will select the difficulties upfront, and leave it to them to find matching problems.
+
+You already decided that there should be $k$ problems with a difficulty sum of $n$.
+There shouldn't be any two problems of the same difficulty, and all difficulties should be positive.
+Your new approach is looking at the jump in difficulties from one problem to the next (assuming that they are solved in order of increasing difficulty).
+For the easiest problem, you consider it as if the previous one had difficulty 0.
+
+You assume that it is good if these jumps are \enquote{similar} by some metric.
+As they can't always be exactly the same, you instead decided to look at their common GCD.\@
+Can you design a difficulty progression that maximizes this GCD, or decide that is impossible to find any progression?
+
+\paragraph*{Input}
+
+The first line contains $t$ ($1 \leq t \leq 30$), the number of test cases.
+Each test case consists of a line containing two numbers $n$ and $k$ ($1 \leq k \leq n \leq 10^9$), the desired difficulty sum and number of problems.
+
+\paragraph*{Output}
+
+For each test case, output a line.
+If a valid progression exists, output $k$ integers $a_i$ ($1 \leq a_i \leq n$) in increasing order --- a progression maximizing the common GCD of the difficulty jumps.
+Otherwise, output -1.
+
+\begin{samples}
+  \sample{sample}
+\end{samples}
+
+\paragraph*{Sample notes}
+
+For the first case, \texttt{1 2 3} is the only valid progression since all others either have a larger sum or have duplicated difficulties.
+
+For the second case, the difficulty jumps are $3$, $3$, and $6$, with a GCD of $3$.
+There are multiple answers with this GCD, but it can be proven that any larger GCD is impossible.
+
+For the third case, there are no four positive, unique numbers that sum to 7.
+
+\end{document}

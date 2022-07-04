@@ -1,0 +1,13 @@
+{
+  "based_on": {
+    "data": [
+      "cp19",
+      "week01",
+      "chocolate"
+    ],
+    "type": "old-problem"
+  },
+  "description": "Chocolate breaking riddle",
+  "difficulty": 1,
+  "tags": ["implementation", "math"]
+}

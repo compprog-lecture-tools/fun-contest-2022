@@ -1,0 +1,78 @@
+\input{template.tex}
+
+\begin{document}
+
+\makeheader
+
+Last week Bob learned some new data structures and as an eager student
+implemented one of them. Can you guess which? All of the data structures have
+the following methods in common:
+
+\begin{description}
+	\itemsep-0.4em
+	\item[insert:] Takes a value $x$ $(0 \leq x < 100)$ and inserts it into the data structure.
+	\item[empty:] Returns \texttt{"yes"} if the data structure is empty, or \texttt{"no"} otherwise.
+	\item[remove:] Returns (and removes) a value from the data structure; the
+		actual behaviour depends on the data structure Bob selected. This method
+		call is only permitted if the data structure is not empty!
+\end{description}
+
+As a reminder, these are the data structures he learned about and how he named them (he sometimes is a bit lazy and prefers to use abbreviations):
+\begin{description}
+	\itemsep-0.4em
+	\item[queue:] A data structure which works by the First-In-First-Out (FIFO) principle.
+	\item[stack:] A data structure which works by the Last-In-First-Out (LIFO) principle.
+	\item[set:] An ordered set of values without duplicates. In the context of this problem, removing an element means removing the smallest element.
+	\item[pq:] A data structure which allows quick access to the smallest value.
+\end{description}
+
+It is guaranteed that Bob implemented one of the above data structures.
+Bob is a good programmer, so there are never any bugs in his code.
+
+
+\paragraph*{Interaction}
+
+This is an interactive problem. This means that your program will not first
+read some intput and then write some output, but instead communicates with
+the jury by writing queries to standard output and reading the answers from
+standard input.
+
+You can perform up to $32$ operations to determine what Bob implemented. To do this just print
+\texttt{"? <operation> <parameters>"} to \texttt{stdout}. Each
+of those operations has to be one of the three described above. If the
+operation does return a value, Bob will print it to \texttt{stdin}. 
+If you ask too many queries Bob will print \texttt{-1} and will go away. In this case,
+your program should immediately exit in order to make sure that your submission
+receives the WRONG ANSWER verdict instead of TIMELIMIT.
+
+As this problem is interactive, you need to flush \texttt{stdout} after each operation, because otherwise Bob won't be able to read your request.
+\begin{description}
+	\itemsep-0.4em
+	\item[Java:] \texttt{System.out.flush()}
+	%\item[FastIO:] \texttt{FastIO.out.flush()}
+	\item[C++:] \texttt{cout.flush()}
+    \item[Python] \texttt{print()} flushes per default
+\end{description}
+
+\paragraph*{Output}
+
+Print \texttt{"! <abbreviation>"} after you figured out which data structure Bob
+implemented. Your program should terminate
+after printing the result. If you have questions, first look at the sample interaction.
+
+\paragraph*{Sample interaction}
+
+\noindent\begin{tcblisting}{listing only, colframe=white, colback=black!10!white, sharp corners, box align=top}
+< ? insert 42
+< ? insert 66
+< ? insert 1
+< ? remove
+> 42
+< ? remove
+> 66
+< ? remove
+> 1
+< ! queue
+\end{tcblisting}
+
+\end{document}

@@ -1,0 +1,71 @@
+\input{template.tex}
+
+\begin{document}
+
+\makeheader
+
+We need you to work on this totally relevant research topic:
+
+A regular palindrome is a string of numbers or letters that is the same forward as backward. 
+For example, the string ``ABCDEDCBA'' is a palindrome because it is the same when the string is read from left to right and from right to left.
+
+A mirrored string is a string for which, when each character is changed to its reverse (if it has a reverse) and the string is read backwards, the result is the same as the original string. 
+For example, ``3AIAE'' is a mirrored string because ``A'' and ``I'' are their own reverses, and ``3'' and ``E'' are each others' reverses.
+
+A mirrored palindrome is a string that meets the criteria of a regular palindrome and the criteria of a mirrored string. 
+The string ``ATOYOTA'' is a mirrored palindrome because if the string is read backwards, the string is the same as the original and because if each of the characters is replaced by its reverse and the result is read backwards, the result is the same as the original string. 
+Of course, ``A'', ``T'', ``O'', and ``Y'' are all their own reverses.
+
+A list of all valid characters and their reverses is as follows.\\
+
+
+\begin{tabular}{c|c|c|c|c|c}
+	Character & Reverse & Character & Reverse & Character & Reverse \\
+	\hline
+	A & A & M & M & Y & Y \\
+	B &   & N &   & Z & 5 \\
+	C &   & O & O & 1 & 1 \\
+	D &   & P &   & 2 & S \\
+	E & 3 & Q &   & 3 & E \\
+	F &   & R &   & 4 &   \\
+	G &   & S & 2 & 5 & Z \\
+	H & H & T & T & 6 &   \\
+	I & I & U & U & 7 &   \\
+	J & L & V & V & 8 & 8 \\
+	K &   & W & W & 9 &   \\
+	L & J & X & X		
+\end{tabular}\\
+
+\paragraph*{Input}
+
+The input contains single newline terminated string.
+The string consists of up to 10k uppercase characters and numbers between 1 and 9. 
+Note that O (the letter) and 0 (zero) are considered the same character and therefore ONLY the letter ``O'' is valid input.
+
+\paragraph*{Output}
+
+Print the string followed by exactly one of the following strings.\\
+
+\begin{tabular}{l|l}
+STRING & CRITERIA\\
+\hline
+\texttt{-- is not a palindrome.} & if the string is not a palindrome\\ & and is not a mirrored string\\
+\hline
+\texttt{-- is a regular palindrome.} & if the string is a palindrome\\ &  and is not a mirrored string\\
+\hline
+\texttt{-- is a mirrored string.} & if the string is not a palindrome\\ &  and is a mirrored string\\
+\hline
+\texttt{-- is a mirrored palindrome.} & if the string is a palindrome\\ &  and is a mirrored string\\
+\end{tabular}\\
+
+Note that the output line is to include the -'s and spacing exactly as shown in the table above and demonstrated in the Sample Output below.
+
+\begin{samples}[0.5]
+  \sample{sample1}
+  \sample{sample2}
+  \sample{sample3}
+  \sample{sample4}
+\end{samples}
+
+\end{document}
+
