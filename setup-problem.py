@@ -1,0 +1,1 @@
+./tools/setup-problem.py
