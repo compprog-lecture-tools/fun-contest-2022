@@ -1,0 +1,409 @@
+<?xml version="1.0"?>
+<!DOCTYPE ipe SYSTEM "ipe.dtd">
+<ipe version="70218" creator="Ipe 7.2.24">
+<info created="D:20190409094512" modified="D:20220705161309"/>
+<preamble>\usepackage{amsmath,amssymb}</preamble>
+<ipestyle name="presentation">
+<symbol name="arrow/arc(spx)">
+<path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-1 -0.333 l
+h
+</path>
+</symbol>
+<symbol name="arrow/farc(spx)">
+<path stroke="sym-stroke" fill="white" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-1 -0.333 l
+h
+</path>
+</symbol>
+<symbol name="mark/circle(sx)" transformations="translations">
+<path fill="sym-stroke">
+0.6 0 0 0.6 0 0 e
+0.4 0 0 0.4 0 0 e
+</path>
+</symbol>
+<symbol name="mark/disk(sx)" transformations="translations">
+<path fill="sym-stroke">
+0.6 0 0 0.6 0 0 e
+</path>
+</symbol>
+<symbol name="mark/fdisk(sfx)" transformations="translations">
+<group>
+<path fill="sym-fill">
+0.5 0 0 0.5 0 0 e
+</path>
+<path fill="sym-stroke" fillrule="eofill">
+0.6 0 0 0.6 0 0 e
+0.4 0 0 0.4 0 0 e
+</path>
+</group>
+</symbol>
+<symbol name="mark/box(sx)" transformations="translations">
+<path fill="sym-stroke" fillrule="eofill">
+-0.6 -0.6 m
+0.6 -0.6 l
+0.6 0.6 l
+-0.6 0.6 l
+h
+-0.4 -0.4 m
+0.4 -0.4 l
+0.4 0.4 l
+-0.4 0.4 l
+h
+</path>
+</symbol>
+<symbol name="mark/square(sx)" transformations="translations">
+<path fill="sym-stroke">
+-0.6 -0.6 m
+0.6 -0.6 l
+0.6 0.6 l
+-0.6 0.6 l
+h
+</path>
+</symbol>
+<symbol name="mark/fsquare(sfx)" transformations="translations">
+<group>
+<path fill="sym-fill">
+-0.5 -0.5 m
+0.5 -0.5 l
+0.5 0.5 l
+-0.5 0.5 l
+h
+</path>
+<path fill="sym-stroke" fillrule="eofill">
+-0.6 -0.6 m
+0.6 -0.6 l
+0.6 0.6 l
+-0.6 0.6 l
+h
+-0.4 -0.4 m
+0.4 -0.4 l
+0.4 0.4 l
+-0.4 0.4 l
+h
+</path>
+</group>
+</symbol>
+<symbol name="mark/cross(sx)" transformations="translations">
+<group>
+<path fill="sym-stroke">
+-0.43 -0.57 m
+0.57 0.43 l
+0.43 0.57 l
+-0.57 -0.43 l
+h
+</path>
+<path fill="sym-stroke">
+-0.43 0.57 m
+0.57 -0.43 l
+0.43 -0.57 l
+-0.57 0.43 l
+h
+</path>
+</group>
+</symbol>
+<symbol name="arrow/fnormal(spx)">
+<path stroke="sym-stroke" fill="white" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-1 -0.333 l
+h
+</path>
+</symbol>
+<symbol name="arrow/pointed(spx)">
+<path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-0.8 0 l
+-1 -0.333 l
+h
+</path>
+</symbol>
+<symbol name="arrow/fpointed(spx)">
+<path stroke="sym-stroke" fill="white" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-0.8 0 l
+-1 -0.333 l
+h
+</path>
+</symbol>
+<symbol name="arrow/linear(spx)">
+<path stroke="sym-stroke" pen="sym-pen">
+-1 0.333 m
+0 0 l
+-1 -0.333 l
+</path>
+</symbol>
+<symbol name="arrow/fdouble(spx)">
+<path stroke="sym-stroke" fill="white" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-1 -0.333 l
+h
+-1 0 m
+-2 0.333 l
+-2 -0.333 l
+h
+</path>
+</symbol>
+<symbol name="arrow/double(spx)">
+<path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
+0 0 m
+-1 0.333 l
+-1 -0.333 l
+h
+-1 0 m
+-2 0.333 l
+-2 -0.333 l
+h
+</path>
+</symbol>
+<anglesize name="22.5 deg" value="22.5"/>
+<anglesize name="30 deg" value="30"/>
+<anglesize name="45 deg" value="45"/>
+<anglesize name="60 deg" value="60"/>
+<anglesize name="90 deg" value="90"/>
+<arrowsize name="large" value="20"/>
+<arrowsize name="normal" value="15"/>
+<arrowsize name="small" value="10"/>
+<arrowsize name="tiny" value="6"/>
+<color name="blue" value="0 0 1"/>
+<color name="brown" value="0.647 0.165 0.165"/>
+<color name="darkblue" value="0 0 0.545"/>
+<color name="darkcyan" value="0 0.545 0.545"/>
+<color name="darkgray" value="0.663"/>
+<color name="darkgreen" value="0 0.392 0"/>
+<color name="darkmagenta" value="0.545 0 0.545"/>
+<color name="darkorange" value="1 0.549 0"/>
+<color name="darkred" value="0.545 0 0"/>
+<color name="gold" value="1 0.843 0"/>
+<color name="gray" value="0.745"/>
+<color name="green" value="0 1 0"/>
+<color name="lightblue" value="0.678 0.847 0.902"/>
+<color name="lightcyan" value="0.878 1 1"/>
+<color name="lightgray" value="0.827"/>
+<color name="lightgreen" value="0.565 0.933 0.565"/>
+<color name="lightyellow" value="1 1 0.878"/>
+<color name="navy" value="0 0 0.502"/>
+<color name="orange" value="1 0.647 0"/>
+<color name="pink" value="1 0.753 0.796"/>
+<color name="purple" value="0.627 0.125 0.941"/>
+<color name="red" value="1 0 0"/>
+<color name="seagreen" value="0.18 0.545 0.341"/>
+<color name="title" value="0.4 0 0.4"/>
+<color name="turquoise" value="0.251 0.878 0.816"/>
+<color name="violet" value="0.933 0.51 0.933"/>
+<color name="yellow" value="1 1 0"/>
+<dashstyle name="dash dot dotted" value="[4 2 1 2 1 2] 0"/>
+<dashstyle name="dash dotted" value="[4 2 1 2] 0"/>
+<dashstyle name="dashed" value="[4] 0"/>
+<dashstyle name="dotted" value="[1 3] 0"/>
+<gridsize name="16 pts (~6 mm)" value="16"/>
+<gridsize name="32 pts (~12 mm)" value="32"/>
+<gridsize name="4 pts (~1.75 mm)" value="8"/>
+<gridsize name="8 pts (~3.5 mm)" value="8"/>
+<pen name="fat" value="3.6"/>
+<pen name="heavier" value="2.4"/>
+<pen name="normal" value="1.2"/>
+<pen name="ultrafat" value="6"/>
+<symbolsize name="large" value="15"/>
+<symbolsize name="normal" value="9"/>
+<symbolsize name="small" value="6"/>
+<symbolsize name="tiny" value="3.3"/>
+<textsize name="huge" value="\LARGE"/>
+<textsize name="large" value="\large"/>
+<textsize name="normal" value="\normalsize"/>
+<textsize name="small" value="\normalsize"/>
+<textstretch name="huge" value="2.8"/>
+<textstretch name="large" value="2.8"/>
+<textstretch name="normal" value="2.8"/>
+<textstretch name="small" value="2.4"/>
+<textstyle name="center" begin="\begin{center}" end="\end{center}"/>
+<textstyle name="item" begin="\begin{flushleft}\begin{itemize}\item{}" end="\end{itemize}\end{flushleft}"/>
+<textstyle name="itemize" begin="\begin{flushleft}\begin{itemize}" end="\end{itemize}\end{flushleft}"/>
+<textstyle name="normal" begin="\begin{flushleft}" end="\end{flushleft}"/>
+<preamble>
+\renewcommand\rmdefault{cmss}
+\makeatletter
+\leftmargini 1.5em
+\leftmargin \leftmargini
+\leftmarginii  1.2em
+\leftmarginiii 1em
+\def\@listI{\leftmargin\leftmargini
+            \parsep \z@
+	    \partopsep 3pt
+	    \topsep \z@
+            \itemsep \z@}
+\@listI
+\def\@listii {\leftmargin\leftmarginii
+              \labelwidth\leftmarginii
+              \advance\labelwidth-\labelsep
+              \topsep    \z@
+              \parsep    \z@
+              \itemsep   \parsep}
+\def\@listiii{\leftmargin\leftmarginiii
+              \labelwidth\leftmarginiii
+              \advance\labelwidth-\labelsep
+              \topsep    \z@
+              \parsep    \z@
+              \partopsep \z@
+              \itemsep   \topsep}
+\makeatother
+</preamble>
+<layout paper="800 600" origin="32 0" frame="736 528" skip="32" crop="no"/>
+<titlestyle pos="368 554" size="large" color="title"  halign="center" valign="baseline"/>
+<tiling name="falling" angle="-60" step="12" width="3"/>
+<tiling name="rising" angle="30" step="12" width="3"/>
+</ipestyle>
+<ipestyle name="HPI-colors">
+<color name="HPIblue" value="0 0.478 0.62"/>
+<color name="HPIblue20" value="0.843 0.906 0.929"/>
+<color name="HPIblue50" value="0.624 0.784 0.835"/>
+<color name="HPIblue70" value="0.31 0.635 0.722"/>
+<color name="HPIgray" value="0.353 0.376 0.396"/>
+<color name="HPIgray20" value="0.875 0.886 0.894"/>
+<color name="HPIgray50" value="0.753 0.769 0.784"/>
+<color name="HPIgray70" value="0.525 0.553 0.569"/>
+<color name="HPIorange" value="0.867 0.38 0.031"/>
+<color name="HPIred" value="0.694 0.024 0.227"/>
+<color name="HPIred20" value="0.937 0.804 0.843"/>
+<color name="HPIred50" value="0.878 0.608 0.69"/>
+<color name="HPIred70" value="0.784 0.314 0.455"/>
+<color name="HPIyellow" value="0.965 0.659 0"/>
+<color name="HPIyellow20" value="1 0.937 0.682"/>
+<color name="HPIyellow50" value="1 0.863 0.529"/>
+<color name="HPIyellow70" value="0.984 0.761 0.369"/>
+<color name="MyHPIgreen" value="0 0.698 0.2"/>
+<color name="MyHPIgreen20" value="0.8 0.937 0.839"/>
+<color name="MyHPIgreen50" value="0.6 0.878 0.678"/>
+<color name="MyHPIgreen70" value="0.298 0.788 0.435"/>
+<opacity name="10%" value="0.1"/>
+<opacity name="20%" value="0.2"/>
+<opacity name="30%" value="0.3"/>
+<opacity name="40%" value="0.4"/>
+<opacity name="50%" value="0.5"/>
+<opacity name="60%" value="0.6"/>
+<opacity name="80%" value="0.8"/>
+<opacity name="90%" value="0.9"/>
+<opacity name="HPI (70%)" value="0.7"/>
+</ipestyle>
+<ipestyle name="decorations">
+<symbol name="decoration/simple-box-small">
+<path stroke="black" fill="lightgray">
+96 96 m
+304 96 l
+304 204 l
+96 204 l
+h
+</path>
+</symbol>
+<symbol name="decoration/simple-box-large">
+<path stroke="black" fill="lightgray">
+92 208 m
+92 92 l
+308 92 l
+308 208 l
+h
+</path>
+</symbol>
+<symbol name="decoration/rounded-box-small">
+<path stroke="black" fill="lightblue">
+100 204 m
+4 0 0 4 100 200 96 200 a
+96 100 l
+4 0 0 4 100 100 100 96 a
+300 96 l
+4 0 0 4 300 100 304 100 a
+304 200 l
+4 0 0 4 300 200 300 204 a
+h
+</path>
+</symbol>
+<symbol name="decoration/rounded-box-large">
+<path stroke="black" fill="lightgray">
+96 208 m
+4 0 0 4 96 204 92 204 a
+92 96 l
+4 0 0 4 96 96 96 92 a
+304 92 l
+4 0 0 4 304 96 308 96 a
+308 204 l
+4 0 0 4 304 204 304 208 a
+h
+</path>
+</symbol>
+<symbol name="decoration/tabbed">
+<path stroke="black" fill="lightgray">
+96 204 m
+96 96 l
+304 96 l
+304 204 l
+108 204 l
+107 207
+106 208
+105 208
+99 208
+98 208
+97 207
+96 204 s
+h
+</path>
+</symbol>
+<symbol name="decoration/3d-box">
+<group>
+<path stroke="black" fill="lightgray">
+98 206 m
+96 204 l
+96 96 l
+304 96 l
+306 98 l
+306 206 l
+h
+</path>
+<path stroke="black">
+96 204 m
+304 204 l
+304 96 l
+</path>
+<path stroke="black">
+304 204 m
+306 206 l
+</path>
+</group>
+</symbol>
+<symbol name="decoration/comic">
+<path stroke="black" fill="white">
+110 96 m
+106 96
+96 96
+96 106
+96 194
+96 204
+106 204
+294 204
+304 204
+304 194
+304 106
+304 96
+294 96
+118 96 s
+116 92
+106 88 s
+110 92
+110 96 s
+h
+</path>
+</symbol>
+</ipestyle>
+<page title="Biggest">
+<layer name="alpha"/>
+<view layers="alpha" active="alpha"/>
+<text layer="alpha" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="16.6824" depth="2.688" valign="top" style="item">Just use $\max$</text>
+<text transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="19.3928" depth="5.404" valign="top">\textbf{Problem:} Find biggest number of input</text>
+</page>
+</ipe>
