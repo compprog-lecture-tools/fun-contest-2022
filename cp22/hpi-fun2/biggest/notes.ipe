@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70218" creator="Ipe 7.2.24">
+<ipe version="70201" creator="Ipe 7.2.24">
 <info created="D:20190409094512" modified="D:20220705161309"/>
 <preamble>\usepackage{amsmath,amssymb}</preamble>
 <ipestyle name="presentation">
