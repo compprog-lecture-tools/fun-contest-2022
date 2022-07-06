@@ -1,3 +1,3 @@
 [submodule "tools"]
 	path = tools
-	url = ../problem-tools.git
+	url = git@github.com:compprog-lecture-tools/problem-tools.git
