@@ -4,19 +4,25 @@
 
 \makeheader
 
-\placeholder{Problem description}
+Rick and Morty are on a new adventure. This time they landed in a parallel universe and of course, Morty broke Ricks laser gun which is needed ot get back home. To get the money back for the materials for the gun they try to gamble at the stock market. Rick knows that it's a physical law, that the right stocks always go up - and thats where they want to invest. 
+
+You need to figure out if the values of a stock price you receive are increasing, so that Rick and Morty know where to invest. The problem is: In this parallel universe they use the same arabian digits but they don't have the same ordering. In our world we have the ordering $0 < 1 < 2 < 3 < 4 < 5 ...$ but in a parallel universe this ordering could be $6 < 2 < 1 < 4 \dots$ . This ordering does not apply to exponentials, so 11 is still bigger than 1.
+
+Can you tell Rick and Morty if they should invest in a given stock?
 
 \paragraph*{Input}
 
-\placeholder{Input description}
+The first line contains the number of prices $1\leq n<10^9$ of a stock you have followed by the n prices $0<n_i<10^9$. Last you will receive the digit order of the local universe, wich is a permutation of the digits 0-9.
 
 \paragraph*{Output}
 
-\placeholder{Output description}
+Output YES if the given stock prices are increasing and NO if not. 
 
 \begin{samples}
   \sample{sample1}
   \sample{sample2}
+  \sample{same_values}
+%  \samlpe{sample4}
 \end{samples}
 
 \end{document}
