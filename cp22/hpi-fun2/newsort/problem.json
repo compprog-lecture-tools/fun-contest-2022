@@ -5,7 +5,7 @@
     ],
     "type": "other"
   },
-  "description": "given list of numbers, decide if they are sorted based on a new order of digits",
+  "description": "given list of numbers, decide if they are sorted increasingly based on a new order of digits",
   "difficulty": 2,
   "tags": [
     "sortings"
