@@ -3,9 +3,12 @@
 vals = list(map(lambda orientation : 0 if orientation == 'up' else 1, input().split()))
 
 turn_counter = 0
+turn_counter2 = 0
 for i in range(len(vals) - 1):
     for j in range(len(vals) - 1):
         if vals[i] != vals[i + 1]:
+            turn_counter2 += 1
+    if vals[i] != vals[i + 1]:
             turn_counter += 1
 if vals[-1] == 1:
     # edge cases where last is turned down an therefore all pancakes need to be turned at the end.

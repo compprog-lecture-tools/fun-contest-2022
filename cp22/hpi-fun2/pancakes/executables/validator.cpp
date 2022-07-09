@@ -9,7 +9,8 @@ int main(int argc, char *argv[])
     registerTestlibCmd(argc, argv);
 
     const int n = inf.readInt(1, MAX_N, "n");
-    const int k = inf.readInt(1, n, "k");
+    const int k = inf.readInt(0, n, "k");
+    cout << "n " << n << ", k" << k << endl;
     vector<bool> pancakes = vector<bool>(n, true);
     vector<string> pancakeStrings = inf.readStrings(n);
     for (int i = 0; i < n; ++i)
@@ -22,14 +23,16 @@ int main(int argc, char *argv[])
     for (int i = 0; i < a0; ++i)
     {
         int ai = ouf.readInt(1, n, "a_i");
-        for (int j = 0; j < ai; ++j) {
+        for (int j = 0; j < ai; ++j)
+        {
             pancakes[j] = not pancakes[j];
         }
     }
     for (int i = 0; i < n; ++i)
     {
-        ouf.ensuref(pancakes[i], "all pancakes must be turned correctly.");
-        if(not pancakes[i]){
+        // ouf.ensuref(pancakes[i], "all pancakes must be turned correctly.");
+        if (not pancakes[i])
+        {
             quit(_wa, "all pancakes must be turned correctly.");
         }
     }
