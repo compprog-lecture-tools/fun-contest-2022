@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-const int MAX_N = 1'000'000;
+const int MAX_N = 100'000;
 int main(int argc, char *argv[])
 {
     setName("describe your validator here");
@@ -10,12 +10,12 @@ int main(int argc, char *argv[])
 
     const int n = inf.readInt(1, MAX_N, "n");
     const int k = inf.readInt(0, n, "k");
-    cout << "n " << n << ", k" << k << endl;
     vector<bool> pancakes = vector<bool>(n, true);
-    vector<string> pancakeStrings = inf.readStrings(n);
+    inf.readLine();
     for (int i = 0; i < n; ++i)
     {
-        pancakes[i] = pancakeStrings[i][0] == 'u';
+        string currentOrientation = inf.readWord();
+        pancakes[i] = currentOrientation.compare("up") == 0;
     }
     int a0 = ouf.readInt(0, n, "a_0");
     ouf.ensuref(a0 > -1, "a_0 must be at least 0");

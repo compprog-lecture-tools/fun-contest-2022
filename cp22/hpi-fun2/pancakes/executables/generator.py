@@ -17,7 +17,7 @@ write_testcase('edge_case1', 'one turn', ['down'], 1)
 write_testcase('edge_case1', 'no turn', ['up'], 0)
 
 
-MAX_N = 10**6
+MAX_N = 10**5
 def generate_random_sample(length, id):
     a = ['up' if random.randint(1,2) > 1 else 'down' for i in range(length)]
     number_of_changes = 0
