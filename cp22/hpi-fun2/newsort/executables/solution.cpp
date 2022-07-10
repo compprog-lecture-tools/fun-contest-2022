@@ -35,9 +35,9 @@ int main() {
         if (s1 == s2) {
             continue;
         }
-        if(s1.length() > s2.length()){
+        if(s1.length() < s2.length()){
             continue;
-        } else if (s1.length() < s2.length()){
+        } else if (s1.length() > s2.length()){
             cout << "NO";
             cout << endl;
             return 0;
