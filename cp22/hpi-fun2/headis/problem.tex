@@ -1,0 +1,42 @@
+\input{template.tex}
+
+\begin{document}
+
+\makeheader
+
+This year's finals of the Headis and Prime Institute's (HPI) tournaments were everything Potsdam's sports enthusiasts could have asked for.
+It was a suspense-packed match between team 3 and team 7.
+Not to mention the exuberant after-show-party.
+When the prime-minister stood a round there was no holding back any longer.
+The screw caps flew and the Mate tea flowed.
+A very eager Headis tutor, however, had overdone it, he lost his balance and stumbled into the refree's table, knocking over several half-empty mate-bottles.
+Ruined was the match-report.
+Following the HPI's party protocol, nobody was able to remember the final result the next day.
+
+As a student assistant, it is your task to prepare the award ceremony and you have to find out who had won the match.
+All you are left with, is the liveticker, revealing which team scored which point and of course the modus of the match,
+which was exclusively introduced by the prime-minister.
+In order to win a match, you have to win a $N_{sets}$ sets and in order to win a set, you have be the first to score $N_{points}$.
+There is no need to be 2 points in advance.
+Indeed, the prime-minister cannot but let the number of sets and points needed be both prime-numbers.
+As the Headis and Prime Institute is leader in the field of prime-factorization, the modus is released by a number $N$,
+with $N$ being a product of two prime numbers $p_{sets}$ and $p_{points}$. Those numbers again define $N_{sets} =
+p_{sets} \mod 10^{23}$ and $N_{points} = p_{points} \mod 10^{23} \geq N_{sets}$
+
+\paragraph*{Input}
+
+The first line of input is the product of $p_{sets}$ ($2\leq p_{sets} \leq 2^{32}$) and $p_{points}$ ($2 \leq p_{points}
+\leq 2^{32}$).
+Then, the second line contains a bitstring $a$, where $a_i$ is the winning team of the $i^{th}$ point.
+
+\paragraph*{Output}
+
+Print the team which won the match.
+
+
+\begin{samples}
+  \sample{sample1}
+  \sample{sample2}
+\end{samples}
+
+\end{document}
