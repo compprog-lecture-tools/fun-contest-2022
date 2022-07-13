@@ -1,0 +1,11 @@
+{
+  "based_on": {
+    "data": [
+      "https://www.geeksforgeeks.org/word-wrap-problem-dp-19/"
+    ],
+    "type": "other"
+  },
+  "description": "minimum raggedness problem",
+  "difficulty": 3,
+  "tags": []
+}
