@@ -1,0 +1,7 @@
+{
+  "description": "Given parts of furniture and their dependencies to one another return the time needed to build them.",
+  "difficulty": 2,
+  "tags": [
+    "dp"
+  ]
+}
