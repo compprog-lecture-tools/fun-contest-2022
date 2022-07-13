@@ -9,7 +9,7 @@ def write_testcase(name, desc, string):
     Path(name + '.in').write_text(string)
     Path(name + '.desc').write_text(desc + '\n')
 
-max_words = 2500
+max_words = 50000
 
 write_testcase("sample1", "A simple testcase solvable with greedy", "3\naaa bb ccc\n6")
 write_testcase("sample2", "A simple testcase not solvable with greedy", "4\naaa bb cc ddddd\n6")
