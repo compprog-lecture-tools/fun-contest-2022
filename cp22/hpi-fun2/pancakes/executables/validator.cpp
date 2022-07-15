@@ -1,25 +1,33 @@
-#include <testlib.h>
+#include "testlib.h"
 #include <bits/stdc++.h>
 
 using namespace std;
 const int MAX_N = 100'000;
+
+class Pancake
+{
+public:
+    bool visitedAtTheEnd = false;
+    Pancake* connectionBelow; // Pointer to next node in DLL
+    Pancake* connectionTop; // Pointer to previous node in DLL
+};
+
 int main(int argc, char *argv[])
 {
     setName("describe your validator here");
     registerTestlibCmd(argc, argv);
 
     const int n = inf.readInt(1, MAX_N, "n");
-    const int k = inf.readInt(0, n, "k");
     vector<bool> pancakes = vector<bool>(n, true);
     inf.readLine();
+    string pancakeOrientation = inf.readWord();
     for (int i = 0; i < n; ++i)
     {
-        string currentOrientation = inf.readWord();
-        pancakes[i] = currentOrientation.compare("up") == 0;
+        pancakes[i] = pancakeOrientation[i] == 'u';
     }
     int a0 = ouf.readInt(0, n, "a_0");
     ouf.ensuref(a0 > -1, "a_0 must be at least 0");
-    ouf.ensuref(a0 <= k, "a_0 must not be more than k");
+    ouf.ensuref(a0 <= n, "a_0 must not be more than n");
     for (int i = 0; i < a0; ++i)
     {
         int ai = ouf.readInt(1, n, "a_i");
@@ -42,5 +50,5 @@ int main(int argc, char *argv[])
     // Exchange _wa by _pe if the format is wrong (should mostly be taken care of by the
     // input functions of ouf)
 
-    quit(_ok, "");
+    quit(_ok, "Solution correct");
 }

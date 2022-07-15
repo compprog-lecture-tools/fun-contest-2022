@@ -1,6 +1,6 @@
-[n, k] = input().split()
+n = int(input())
 
-vals = list(map(lambda orientation : 0 if orientation == 'up' else 1, input().split()))
+vals = list(map(lambda orientation : 0 if orientation == 'u' else 1, input()))
 
 turn_counter = 0
 turn_counter2 = 0
