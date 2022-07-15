@@ -6,7 +6,7 @@
     "type": "other"
   },
   "description": "Pancake problem with greedy algo intended as solution",
-  "difficulty": 2,
+  "difficulty": 3,
   "tags": [
     "greedy"
   ]
