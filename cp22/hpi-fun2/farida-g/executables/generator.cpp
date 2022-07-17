@@ -165,9 +165,9 @@ int main(int argc, char* argv[]) {
     rnd.setSeed(8346173064822485599ll);
 
     predefined("zero", "Consists of an empty graph", ZERO_SAMPLE);
-    predefined("simple", "Three nodes in a linear setup", SIMPLE_SAMPLE);
-    predefined("clique3", "A clique of 3 nodes", CLIQUE3_SAMPLE);
-    predefined("house", "A 4-clique with another node connected to 2", HOUSE_SAMPLE);
+    predefined("sample1", "Three nodes in a linear setup", SIMPLE_SAMPLE);
+    predefined("sample2", "A clique of 3 nodes", CLIQUE3_SAMPLE);
+    predefined("sample3", "A 4-clique with another node connected to 2", HOUSE_SAMPLE);
 
     random_sample("max", "Contains a maximum-sized graph", 100000, 100008);
 
