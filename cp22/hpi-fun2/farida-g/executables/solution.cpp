@@ -8,7 +8,7 @@ using namespace std;
 using node_t = uint32_t;
 using kernelnode_t = uint8_t;
 using solution_t = uint64_t;
-using localcoins_t = uint32_t;
+using inputcoins_t = uint32_t;
 
 class UF
 {
@@ -44,17 +44,15 @@ public:
     }
 };
 
+template<typename T>
 struct Edge
 {
     node_t u;
     node_t v;
 };
 
-struct KernelEdge
-{
-    kernelnode_t u;
-    kernelnode_t v;
-};
+using edge_t = Edge<node_t>;
+using kerneledge_t = Edge<kernelnode_t>;
 
 struct DP_Entry
 {
@@ -74,18 +72,18 @@ int main()
     size_t n, m;
     cin >> n >> m;
 
-    vector<localcoins_t> coins;
+    vector<inputcoins_t> coins;
     coins.reserve(n + 1);
     coins.push_back(0); // virtual 0 node
 
     for(size_t i = 0; i < n; i++)
     {
-        localcoins_t coin;
+        inputcoins_t coin;
         cin >> coin;
         coins.push_back(coin);
     }
 
-    vector<Edge> edges;
+    vector<edge_t> edges;
     edges.reserve(m);
 
     UF uf(n+1);
@@ -177,10 +175,8 @@ int main()
         }
     }
 
-    vector<KernelEdge> kernel_internal_edges;
-
     // For each kernel node, fill in its neighbours
-
+    vector<kerneledge_t> kernel_internal_edges;
     for(auto [u, v] : edges)
     {
         auto maybe_kernel_u = kernel_nodes.find(u);
@@ -196,14 +192,13 @@ int main()
     vector<DP_Entry> opt(parent.size());
 
     // Apply "regular_ordered" permutation to coins.
-    vector<localcoins_t> regular_coins(parent.size());
-
+    vector<inputcoins_t> regular_coins(parent.size());
     for(node_t new_u = 0; new_u < opt.size(); new_u++)
     {
         regular_coins[new_u] = coins[regular_ordered[new_u]];
     }
 
-    vector<localcoins_t> kernel_coins(kernel_nodes.size());
+    vector<inputcoins_t> kernel_coins(kernel_nodes.size());
 
     for(auto [u, i] : kernel_nodes)
     {
@@ -215,13 +210,13 @@ int main()
     for(size_t config = 0; config < (1 << kernel_nodes.size()); config++)
     {
         // Check that there are no contradictions inside our problem kernel set
-        if(any_of(kernel_internal_edges.begin(), kernel_internal_edges.end(), [config](KernelEdge e) {
+        if(any_of(kernel_internal_edges.begin(), kernel_internal_edges.end(), [config](kerneledge_t e) {
                     return (config & (1 << e.u)) && (config & (1 << e.v));
         }))
             continue;
 
         // Add coins right at the beginning, such that we can remove them for each active kernel node's neighbour.
-        transform(regular_coins.begin(), regular_coins.end(), opt.begin(), [](localcoins_t val) { return DP_Entry{ .without = 0, .with = val }; });
+        transform(regular_coins.begin(), regular_coins.end(), opt.begin(), [](inputcoins_t val) { return DP_Entry{ .without = 0, .with = val }; });
 
         // Initialization according to the kernel nodes.
         for(auto extra_node_mapping : kernel_nodes)

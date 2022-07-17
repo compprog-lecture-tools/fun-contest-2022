@@ -125,6 +125,9 @@ static void random_sample(string name, string desc, size_t n, size_t m)
             {
                 e.first = rnd.next(n) + 1;
                 e.second = rnd.next(n) + 1;
+
+                if(e.first > e.second)
+                    swap(e.first, e.second);
             }
             while(!uf.merge(e.first, e.second));
 
@@ -140,6 +143,9 @@ static void random_sample(string name, string desc, size_t n, size_t m)
             {
                 e.first = rnd.next(n) + 1;
                 e.second = rnd.next(n) + 1;
+
+                if(e.first > e.second)
+                    swap(e.first, e.second);
             }
             while(e.first == e.second || edges_set.find(e) != edges_set.end());
 
@@ -163,12 +169,12 @@ int main(int argc, char* argv[]) {
     predefined("clique3", "A clique of 3 nodes", CLIQUE3_SAMPLE);
     predefined("house", "A 4-clique with another node connected to 2", HOUSE_SAMPLE);
 
-    random_sample("max", "Contains a maximum-sized graph", 100000, 100010);
+    random_sample("max", "Contains a maximum-sized graph", 100000, 100008);
 
-    for(size_t i = 1; i < 8; i++)
+    for(size_t i = 1; i < 10; i++)
     {
         size_t n = rnd.next(100000) + 1;
-        size_t m = n - 1 + rnd.next(12);
+        size_t m = n - 1 + 2 + rnd.next(8);
 
         auto num_str = toString(i);
         random_sample("random" + num_str, "Random Sample #" + num_str, n, m);

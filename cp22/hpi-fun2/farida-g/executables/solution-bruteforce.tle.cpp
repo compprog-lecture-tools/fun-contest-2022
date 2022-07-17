@@ -6,27 +6,13 @@
 using namespace std;
 
 using node_t = uint32_t;
-using kernelnode_t = uint8_t;
 using solution_t = uint64_t;
-using localcoins_t = uint32_t;
+using inputcoins_t = uint32_t;
 
-
-struct Edge
+struct edge_t
 {
     node_t u;
     node_t v;
-};
-
-struct KernelEdge
-{
-    kernelnode_t u;
-    kernelnode_t v;
-};
-
-struct DP_Entry
-{
-    solution_t without;
-    solution_t with;
 };
 
 int main()
@@ -40,12 +26,12 @@ int main()
     size_t n, m;
     cin >> n >> m;
 
-    vector<localcoins_t> coins(n);
+    vector<inputcoins_t> coins(n);
 
     for(auto& coin : coins)
         cin >> coin;
 
-    vector<Edge> edges(m);
+    vector<edge_t> edges(m);
 
     for(auto& e : edges)
     {
@@ -58,11 +44,13 @@ int main()
 
     solution_t max_coins = 0;
 
-    for(size_t config = 0; n >= 64 || (config < (1 << n)); config++)
+    for(size_t iteration = 0; n >= 64 || (iteration < (1 << n)); iteration++)
     {
-        // Check that there are no contradictions inside our problem kernel set
-        if(any_of(edges.begin(), edges.end(), [config](Edge e) {
-                    return (config & (1 << e.u)) && (config & (1 << e.v));
+        bitset<64> subset(iteration);
+
+        // Check that there are no contradictions inside our independent set
+        if(any_of(edges.begin(), edges.end(), [subset](edge_t e) {
+                    return subset[e.u] && subset[e.v];
         }))
             continue;
 
@@ -70,7 +58,7 @@ int main()
 
         for(node_t u = 0; u < n; u++)
         {
-            if(config & (1 << u))
+            if(subset[u])
                 cur_coins += coins[u];
         }
 
