@@ -13,10 +13,10 @@ using inputcoins_t = uint32_t;
 class UF
 {
     // 0 reserved for "no parent"
-    node_t* entries;
+    vector<node_t> entries;
 
 public:
-    UF(size_t size) : entries(new node_t[size+1]()) {}
+    UF(size_t size) : entries(size+1) {}
 
     node_t find(node_t p)
     {
