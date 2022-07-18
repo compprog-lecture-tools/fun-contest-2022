@@ -7,6 +7,14 @@ using namespace std;
 using node_t = uint32_t;
 using edge_t = pair<node_t, node_t>;
 
+
+#define N_MIN 2
+#define N_MAX 100000
+#define M_MIN(n) (n - 1)
+#define M_MAX(n) (n + 8)
+
+
+
 namespace std
 {
     template <>
@@ -53,11 +61,6 @@ public:
     }
 };
 
-
-
-
-const string_view ZERO_SAMPLE = R"(0 0
-)";
 
 const string_view SIMPLE_SAMPLE = R"(3 2
 3 6 4
@@ -155,7 +158,12 @@ static void random_sample(string name, string desc, size_t n, size_t m)
 
         for(uint32_t i : rnd.perm<uint32_t>(m))
         {
-            cout << edges[i].first << ' ' << edges[i].second << '\n';
+            auto e = edges[i];
+
+            if(rnd.next(2))
+                swap(e.first, e.second);
+
+            cout << e.first << ' ' << e.second << '\n';
         }
     });
 }
@@ -168,12 +176,13 @@ int main(int argc, char* argv[]) {
     predefined("sample2", "A clique of 3 nodes", CLIQUE3_SAMPLE);
     predefined("sample3", "A 4-clique with another node connected to 2", HOUSE_SAMPLE);
 
-    random_sample("max", "Contains a maximum-sized graph", 100000, 100008);
+    random_sample("max", "Contains a maximum-sized graph", N_MAX, M_MAX(N_MAX));
 
     for(size_t i = 1; i < 10; i++)
     {
-        size_t n = rnd.next(100000 - 1) + 2;
-        size_t m = n - 1 + 2 + rnd.next(8);
+        size_t n = N_MIN + rnd.next(N_MAX - N_MIN + 1);
+        // Add 2 to M_MIN to make the samples more demanding
+        size_t m = (M_MIN(n) + 2) + rnd.next(M_MAX(n) - (M_MIN(n) + 2) + 1);
 
         auto num_str = toString(i);
         random_sample("random" + num_str, "Random Sample #" + num_str, n, m);
