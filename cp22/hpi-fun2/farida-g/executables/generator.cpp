@@ -164,7 +164,6 @@ int main(int argc, char* argv[]) {
     registerGen(argc, argv, 1);
     rnd.setSeed(8346173064822485599ll);
 
-    predefined("zero", "Consists of an empty graph", ZERO_SAMPLE);
     predefined("sample1", "Three nodes in a linear setup", SIMPLE_SAMPLE);
     predefined("sample2", "A clique of 3 nodes", CLIQUE3_SAMPLE);
     predefined("sample3", "A 4-clique with another node connected to 2", HOUSE_SAMPLE);
@@ -173,7 +172,7 @@ int main(int argc, char* argv[]) {
 
     for(size_t i = 1; i < 10; i++)
     {
-        size_t n = rnd.next(100000) + 1;
+        size_t n = rnd.next(100000 - 1) + 2;
         size_t m = n - 1 + 2 + rnd.next(8);
 
         auto num_str = toString(i);
