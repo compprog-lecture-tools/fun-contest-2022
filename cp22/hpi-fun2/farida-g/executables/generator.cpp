@@ -14,7 +14,7 @@ namespace std
     {
         size_t operator()(edge_t e) const
         {
-            return reinterpret_cast<size_t&>(e);
+            return (size_t)e.first | ((size_t)e.second << 32);
         }
     };
 }
