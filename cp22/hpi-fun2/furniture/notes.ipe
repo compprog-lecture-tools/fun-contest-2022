@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.25">
-<info created="D:20190409094512" modified="D:20220714094356"/>
+<info created="D:20190409094512" modified="D:20220719161322"/>
 <preamble>\usepackage{amsmath,amssymb}</preamble>
 <ipestyle name="presentation">
 <symbol name="arrow/arc(spx)">
@@ -400,12 +400,14 @@ h
 </path>
 </symbol>
 </ipestyle>
-<page title="Furniture">
+<page title="Furniture" marked="no">
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<text layer="alpha" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="99.484" depth="85.708" valign="top" style="item">\item use e.g. a bfs which also tracks for every node the longest time needed to get to that note
-\item graph dp
-\item last node in which we enter a distance is the final output</text>
+<view layers="alpha" active="alpha"/>
+<text layer="alpha" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="19.3928" depth="5.404" valign="top" style="item">find topological sort</text>
 <text transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="19.3928" depth="5.404" valign="top">\textbf{Problem:} find the longest path in a DAG</text>
+<text matrix="1 0 0 1 0 -144" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top" style="item">do graph dp where each cell in the dp array represents the time needed until that point</text>
+<text matrix="1 0 0 1 0 -224" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="52.8248" depth="38.92" valign="top" style="item">increase time needed if time until previous vertex plus current vertex takes more time than currently saved in dp array</text>
+<text matrix="1 0 0 1 0 -336" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top" style="item">output the time saved in dp array of last vertex in topological sort</text>
 </page>
 </ipe>
