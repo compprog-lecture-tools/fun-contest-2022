@@ -1,5 +1,5 @@
 {
-  "description": "Given parts of furniture and their dependencies to one another return the time needed to build them.",
+  "description": "longest path in DAG with vertex weights and story",
   "difficulty": 2,
   "tags": [
     "dp"
