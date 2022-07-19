@@ -5,7 +5,7 @@
     ],
     "type": "other"
   },
-  "description": "minimum raggedness problem",
+  "description": "place newlines in words to minimize number of trailing spaces",
   "difficulty": 3,
   "tags": []
 }

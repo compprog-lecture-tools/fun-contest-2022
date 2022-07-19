@@ -4,20 +4,23 @@
 
 \makeheader
 
-You get a late night call from your best buddy Bill. He askes you if you can help him with his problem.
-Bill is the founder of a software company which sells an word processing programm. He needs a programm, which places words minimal ragged on lines with a fixed width.
-A text is considerd minimal ragged, if the squared sum of the remaining spaces on a line is minimal.
+You get a late night call from your best buddy Bill. He asks you if you can help him with his problem.
+Bill is the founder of a software company which sells a word processing program. He needs a program, which places words minimally ragged on lines with a fixed width.
+A text is considered minimally ragged, if the squared sum of the remaining spaces on a line is minimal.
+
+\paragraph*{Input}
+A number $n$ ($1 \leq n \leq 10^6$), the number of words to place on the lines.
+A list of $n$ words on a single line, each word has at most 20 characters. 
+A line width $w$ ($1 \leq w \leq 250$), defining the maxiumum number of characters on a single line.
+You can assume that every word fits on a line.
+
+\paragraph*{Sample explanation}
 For example we have the words $aaa$ $bb$ $ccc$, and a line width of 6.
 A minimal placement would place the words $aaa$ and $bb$ on one line. In this line there is no remaining space.
 In the next line the word $ccc$ is placed. Because this is the last line the space is not counted.
 So the minimum cost is: $0^2 = 0$.
 Lets consider another example: $aaa$ $bbb$ $ccc$. Here every word must be placed in his own line.
 So the minumum cost is: $3^2+3^2= 27$.
-
-\paragraph*{Input}
-A number $n$ ($1 \leq n \leq 50000$), the number of words to place on the lines.
-A list of $n$ words on a single line.
-A line width $w$ ($1 \leq w \leq 250$), defining the maxiumum number of characters on a single line.
 
 \paragraph*{Output}
 
