@@ -42,22 +42,24 @@ def generate_random_two_split_testcase(number: int):
     first_half = random.randrange(1, number)
     edges = [(1, i) for i in range(2, number)]
     edges += [(i, first_half) for i in range(2, first_half)]
-    edges += [(i, number - 1) for i in range(first_half + 1, number)]
+    edges += [(i, number - 1) for i in range(first_half + 1, number - 1)]
     edges.append((number - 1, number))
     edges.append((first_half, number))
     return edges
 
 
-def generate_random_testcase(number: int):
+def generate_random_testcase(number: int, m: int):
     all_vertices = [i for i in range(1, number+1)]
     random.shuffle(all_vertices)
-    edges = []
+    edges = set()
 
-    for i in range(number-1):
-        num_edges = random.randint(1, 2)
-        for i in range(num_edges):
-            edges.append((i, random.randint(i+1, number)))
-    return edges
+    while len(edges) < m:
+        i = random.randint(0, number-1)
+        j = random.randint(0, number-1)
+        if i >= j:
+            continue
+        edges.add((all_vertices[i], all_vertices[j]))
+    return list(edges)
 
 for i in range(1, 3):
     n = random.randrange(1, MAX_N + 1)
@@ -69,6 +71,6 @@ for i in range(1, 3):
 for i in range(1, 5):
     n = random.randrange(4, MAX_N + 1)
     vertices_values_two = random_arr(n)
-    edges_two = generate_random_testcase(n)
+    edges_two = generate_random_testcase(n, MAX_M)
     write_testcase(f'random_testcase_{i}', 'Random test case which for one third of vertices skips one to parallelize',
                    valuesVertices=vertices_values_two, edges=edges_two)
