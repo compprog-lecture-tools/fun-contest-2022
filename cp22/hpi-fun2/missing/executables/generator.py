@@ -22,6 +22,6 @@ write_testcase("no_palindromes", "A testcase without palindromes", "azbcdefgzhij
 long_text = ''.join(random.choice(string.ascii_lowercase) for _ in range(int(max_length/2)))
 write_testcase("very_long_palindrome", "A very long palindrome", long_text + "".join(reversed(long_text)))
 write_testcase("many_palindromes", "Many similar palindromes", "".join(random.choice(["anna", "otto", "iggi"]) for _ in range(int((max_length-1)/4))))
-write_testcase("random_small", "A small random testcase",''.join(random.choice(string.ascii_lowercase) for _ in range(20)))
-write_testcase("random_large_1", "A large random testcase",''.join(random.choice(string.ascii_lowercase) for _ in range(max_length)))
-write_testcase("random_large_2", "A large random testcase",''.join(random.choice(string.ascii_lowercase) for _ in range(max_length)))
+for i in range(5):
+    write_testcase(f"random_small_{i}", "A small random testcase",''.join(random.choice(string.ascii_lowercase) for _ in range(20)))
+    write_testcase("random_large_{i}", "A large random testcase",''.join(random.choice(string.ascii_lowercase) for _ in range(max_length)))
