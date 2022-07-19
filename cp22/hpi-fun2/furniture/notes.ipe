@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70218" creator="Ipe 7.2.25">
-<info created="D:20190409094512" modified="D:20220719161322"/>
+<ipe version="70218" creator="Ipe 7.2.24">
+<info created="D:20190409094512" modified="D:20220719162307"/>
 <preamble>\usepackage{amsmath,amssymb}</preamble>
 <ipestyle name="presentation">
 <symbol name="arrow/arc(spx)">
@@ -402,12 +402,19 @@ h
 </ipestyle>
 <page title="Furniture" marked="no">
 <layer name="alpha"/>
+<layer name="beta"/>
+<layer name="gamma"/>
+<layer name="delta"/>
+<layer name="epsilon"/>
 <view layers="alpha" active="alpha"/>
-<view layers="alpha" active="alpha"/>
-<text layer="alpha" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="19.3928" depth="5.404" valign="top" style="item">find topological sort</text>
-<text transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="19.3928" depth="5.404" valign="top">\textbf{Problem:} find the longest path in a DAG</text>
-<text matrix="1 0 0 1 0 -144" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top" style="item">do graph dp where each cell in the dp array represents the time needed until that point</text>
-<text matrix="1 0 0 1 0 -224" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="52.8248" depth="38.92" valign="top" style="item">increase time needed if time until previous vertex plus current vertex takes more time than currently saved in dp array</text>
-<text matrix="1 0 0 1 0 -336" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top" style="item">output the time saved in dp array of last vertex in topological sort</text>
+<view layers="alpha beta" active="beta"/>
+<view layers="alpha beta gamma" active="gamma"/>
+<view layers="alpha beta gamma delta" active="delta"/>
+<view layers="alpha beta gamma delta epsilon" active="epsilon"/>
+<text layer="beta" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="19.3928" depth="5.404" valign="top" style="item">find topological sort</text>
+<text layer="alpha" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="19.3928" depth="5.404" valign="top">\textbf{Problem:} find the longest path in a DAG</text>
+<text layer="gamma" matrix="1 0 0 1 0 -144" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top" style="item">do graph dp where each cell in the dp array represents the time needed until that point</text>
+<text layer="delta" matrix="1 0 0 1 0 -224" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="52.8248" depth="38.92" valign="top" style="item">increase time needed if time until previous vertex plus current vertex takes more time than currently saved in dp array</text>
+<text layer="epsilon" matrix="1 0 0 1 0 -336" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top" style="item">output the time saved in dp array of last vertex in topological sort</text>
 </page>
 </ipe>
