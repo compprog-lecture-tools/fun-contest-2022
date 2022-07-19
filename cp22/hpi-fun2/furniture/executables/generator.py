@@ -18,13 +18,16 @@ def write_testcase(name: str, desc: str, valuesVertices: list[int], edges: list[
 write_testcase('sample1', 'Easy first sample', [10, 12, 3, 9], [(1, 2), (1, 4), (2, 3), (4, 3)])
 write_testcase('sample2', 'Easy second example, two starting points', [7, 9, 2], [(1, 3), (2, 3)])
 
-MAX_N = 10 ** 4
+MAX_N = 10 ** 5
 MAX_Value = 100
+MAX_M = 2* (10 ** 5)
 
 write_testcase('biggest', 'One long line with highest values',
                [MAX_Value for i in range(MAX_N)], [(i, i + 1) for i in range(1, MAX_N)])
 write_testcase('biggest2', 'Max value vertices with highest value each connected to last',
                [MAX_Value for i in range(MAX_N)], [(i, MAX_N) for i in range(1, MAX_N)])
+write_testcase('max_edges', "Test case with maximum number of edges",
+           [MAX_Value for i in range(MAX_N)], [(i, MAX_N) for i in range(1, MAX_N)] + [(i, i+1) for i in range(1, MAX_N)])
 write_testcase('one_big', 'Big test case where all vertices have value 1 except for one',
                [1 for i in range(MAX_N - 1)] + [MAX_Value], [(i, MAX_N) for i in range(1, MAX_N)])
 write_testcase('small', 'Smallest test case', [1, 1], [(1, 2)])
@@ -46,26 +49,26 @@ def generate_random_two_split_testcase(number: int):
 
 
 def generate_random_testcase(number: int):
-    split = math.ceil(number / 3 * 2) + 1
-    edges = [(i - 1, i) for i in range(2, split)]
-    j = 1
-    for i in range(split, number + 1):
-        edges += [(j, i)]
-        edges += [(i, j + 2)]
-        j += 2
-    return edges
+    all_vertices = [i for i in range(1, number+1)]
+    random.shuffle(all_vertices)
+    edges = []
 
+    for i in range(number-1):
+        num_edges = random.randint(1, 2)
+        for i in range(num_edges):
+            edges.append((i, random.randint(i+1, number)))
+    return edges
 
 for i in range(1, 3):
     n = random.randrange(1, MAX_N + 1)
     vertices_values = random_arr(n)
     edges = generate_random_two_split_testcase(n)
-    write_testcase(f'random_two_split{i}', 'Random test case which splits into two parts',
+    write_testcase(f'random_two_split_{i}', 'Random test case which splits into two parts',
                    valuesVertices=vertices_values, edges=edges)
 
 for i in range(1, 5):
     n = random.randrange(4, MAX_N + 1)
     vertices_values_two = random_arr(n)
     edges_two = generate_random_testcase(n)
-    write_testcase(f'random_skip_one{i}', 'Random test case which for one third of vertices skips one to parallelize',
+    write_testcase(f'random_testcase_{i}', 'Random test case which for one third of vertices skips one to parallelize',
                    valuesVertices=vertices_values_two, edges=edges_two)
