@@ -415,6 +415,6 @@ h
 <text layer="alpha" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="19.3928" depth="5.404" valign="top">\textbf{Problem:} find the longest path in a DAG</text>
 <text layer="gamma" matrix="1 0 0 1 0 -144" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top" style="item">do graph dp where each cell in the dp array represents the time needed until that point</text>
 <text layer="delta" matrix="1 0 0 1 0 -224" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="52.8248" depth="38.92" valign="top" style="item">increase time needed if time until previous vertex plus current vertex takes more time than currently saved in dp array</text>
-<text layer="epsilon" matrix="1 0 0 1 0 -336" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top" style="item">output the time saved in dp array of last vertex in topological sort</text>
+<text layer="epsilon" matrix="1 0 0 1 0 -336" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top" style="item">output the maximum time saved in dp array</text>
 </page>
 </ipe>
