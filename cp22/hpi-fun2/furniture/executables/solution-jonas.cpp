@@ -57,7 +57,6 @@ int main() {
         }
     }
 
-    cerr << topo.size() << endl;
     // the graph should be a DAG
     assert(topo.size() == n);
 
