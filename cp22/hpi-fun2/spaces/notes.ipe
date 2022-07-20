@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.24">
-<info created="D:20190409094512" modified="D:20220713133821"/>
+<info created="D:20190409094512" modified="D:20220720115125"/>
 <preamble>\usepackage{amsmath,amssymb}</preamble>
 <ipestyle name="presentation">
 <symbol name="arrow/arc(spx)">
@@ -403,12 +403,17 @@ h
 <page title="Spaces">
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
-<text layer="alpha" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="176.005" depth="162.456" valign="top" style="item">\item Greedy approach: select as many words as possible which fit on one line
+<text layer="alpha" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="203.26" depth="189.756" valign="top">\begin{itemize}
+\item Greedy approach: select as many words as possible which fit on one line
 \item Example 2: $aaa$ $bb$ $cc$ $ddddd$ and line width 6
 \item A greedy approach would place $aaa$ $bb$ on one line, which results in $0^2+4^2=16$, but the optimal solution is $aaa$ and $bb$ $cc$: $3^2+1^2=10$
 \item \textbf{Solution DP}
-\item start with last word on a line (cost = 0)
-\item $dp[i]=\min\limits_{\forall j \leq N-1}(dp[j+1] + (linewidth-currwidth)^2)$</text>
+\item start with first word $dp[0] = 0$
+\item for $w$ in words
+\item for each word after $w$ check if it fits on line
+\item $dp[j] = min(dp[j], dp[i]+(w-curr)^2)$
+\item result is min value in dp at end of a line
+\end{itemize}</text>
 <text transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top">\textbf{Problem:} Find minimal ragged text layout for a given line width and input text</text>
 </page>
 </ipe>
