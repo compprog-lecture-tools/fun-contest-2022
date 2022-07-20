@@ -1,10 +1,20 @@
 import random
+import math
 from pathlib import Path
-from Crypto.Util import number
-import numpy as np
 
 random.seed(-5128704985903725171)
 
+def check_prime(n):
+    for i in range(2, round(math.sqrt(n))+1):
+        if n % i == 0:
+            return False
+    return True
+
+def getPrime(l):
+    while True:
+        n = random.randint(2**(l-1), 2**l-1)
+        if check_prime(n):
+            return l
 
 def write_testcase(name, desc, prime_product, bitstring):
     Path(name + '.in').write_text(str(prime_product) + '\n' + bitstring + '\n')
@@ -20,7 +30,7 @@ def generate_set_2(winner, n_points):
     else:
         loser = "3"
     points = [winner] * (n_points-1) + [loser] * random.randint(0, n_points-1)
-    np.random.shuffle(points)
+    random.shuffle(points)
     points += [winner]
     return "".join(points)
 
@@ -31,7 +41,7 @@ def generate_random_bitstring2(a, b):
     else:
         set_winners = ["7"] * (b-1) + ["3"] * random.randint(0, b-1)
         winner = "7"
-    np.random.shuffle(set_winners)
+    random.shuffle(set_winners)
     set_winners += [winner]
 
     generator = random.choice([generate_set_1, generate_set_2])
@@ -39,8 +49,8 @@ def generate_random_bitstring2(a, b):
     return "".join(bitstring)
 
 def random_testcase(n):
-    p1 = number.getPrime(n)
-    p2 = number.getPrime(n)
+    p1 = getPrime(n)
+    p2 = getPrime(n)
     a = min(p1 % 10**2, p2 % 10**2)
     b = max(p1 % 10**2, p2 % 10**2)
 
