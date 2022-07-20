@@ -1,5 +1,7 @@
 {
   "description": "Find out who won the match",
   "difficulty": 1,
-  "tags": []
+  "tags": [
+    "ad-hoc"
+  ]
 }
