@@ -30,44 +30,48 @@ static mt19937 rng((uint32_t)chrono::duration_cast<chrono::nanoseconds>(chrono::
 
 // region number theory
 // source: kactl
-using ull = uint64_t;
-ull mod_pow(ull b, ull e, ull mod) {
-    ull ans = 1;
-    for(; e; b = b*b % mod, e /= 2)
-        if (e & 1) ans = ans*b % mod;
-    return ans;
+typedef unsigned long long ull;
+ull modmul(ull a, ull b, ull M) {
+	ll ret = a * b - M * ull(1.L / M * a * b);
+	return ret + M * (ret < 0) - M * (ret >= (ll)M);
+}
+ull modpow(ull b, ull e, ull mod) {
+	ull ans = 1;
+	for (; e; b = modmul(b, b, mod), e /= 2)
+		if (e & 1) ans = modmul(ans, b, mod);
+	return ans;
 }
 
-bool miller_rabin(ull n) {
-    if (n < 2 || n % 6 % 4 != 1) return n - 2 < 2;
-    ull A[] = {2, 325, 9375, 28178, 450775, 9780504, 1795265022},
-            s = __builtin_ctzll(n-1), d = n >> s;
-    for (auto a : A) {
-        ull p = mod_pow(a, d, n), i = s;
-        while (p != 1 && p != n-1 && a % n && i--) p = p*p % n;
-        if (p != n-1 && i != s) return false;
-    }
-    return true;
+bool isPrime(ull n) {
+	if (n < 2 || n % 6 % 4 != 1) return (n | 1) == 3;
+	ull A[] = {2, 325, 9375, 28178, 450775, 9780504, 1795265022},
+	    s = __builtin_ctzll(n-1), d = n >> s;
+	for (ull a : A) {   // ^ count trailing zeroes
+		ull p = modpow(a%n, d, n), i = s;
+		while (p != 1 && p != n - 1 && a % n && i--)
+			p = modmul(p, p, n);
+		if (p != n-1 && i != s) return 0;
+	}
+	return 1;
 }
 
-ull rho(ull n) {
-    if (n % 2 == 0) return 2;
-    auto f = [n](ull x) { return (x*x % n + 1) % n; };
-    for (ull i = 2;;i++) {
-        ull x = i, y = f(x), g = gcd(x - y, n);
-        while (g == 1)
-            x = f(x), y = f(f(y)), g = gcd(x - y, n);
-        if (g != n) return g;
-    }
+ull pollard(ull n) {
+	auto f = [n](ull x) { return modmul(x, x, n) + 1; };
+	ull x = 0, y = 0, t = 30, prd = 2, i = 1, q;
+	while (t++ % 40 || __gcd(prd, n) == 1) {
+		if (x == y) x = ++i, y = f(x);
+		if ((q = modmul(prd, max(x,y) - min(x,y), n))) prd = q;
+		x = f(x), y = f(f(y));
+	}
+	return __gcd(prd, n);
 }
-
 vector<ull> factor(ull n) {
-    if (n == 1) return {};
-    if (miller_rabin(n)) return {n};
-    ull x = rho(n);
-    auto l = factor(x), r = factor(n / x);
-    l.insert(l.end(), all(r));
-    return l;
+	if (n == 1) return {};
+	if (isPrime(n)) return {n};
+	ull x = pollard(n);
+	auto l = factor(x), r = factor(n / x);
+	l.insert(l.end(), all(r));
+	return l;
 }
 // endregion
 
@@ -78,8 +82,11 @@ int main() {
     cout.precision(10);
 
     ull n; cin >> n;
+    cerr << n << endl;
 
     auto f = factor(n);
+    trav(fi, f) cerr << fi << ' ';
+    cerr << endl;
 
     assert(sz(f) == 2);
     f[0] %= 100;

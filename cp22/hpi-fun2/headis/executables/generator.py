@@ -68,5 +68,5 @@ for i in range(1, 5+1):
     write_testcase('random_small'+str(i), 'random example with smaller prime-numbers', prod, bitstring)
 
 for i in range(1, 5+1):
-    prod, bitstring = random_testcase(48)
+    prod, bitstring = random_testcase(25)
     write_testcase('random_large'+str(i), 'random example with larger prime-numbers', prod, bitstring)
