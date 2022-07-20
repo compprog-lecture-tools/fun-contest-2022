@@ -14,7 +14,7 @@ def getPrime(l):
     while True:
         n = random.randint(2**(l-1), 2**l-1)
         if check_prime(n):
-            return l
+            return n
 
 def write_testcase(name, desc, prime_product, bitstring):
     Path(name + '.in').write_text(str(prime_product) + '\n' + bitstring + '\n')
@@ -51,20 +51,22 @@ def generate_random_bitstring2(a, b):
 def random_testcase(n):
     p1 = getPrime(n)
     p2 = getPrime(n)
-    a = min(p1 % 10**2, p2 % 10**2)
-    b = max(p1 % 10**2, p2 % 10**2)
+    print("Generated: ", p1, p2)
+    a = max(p1 % 10**2, p2 % 10**2)
+    b = min(p1 % 10**2, p2 % 10**2)
 
 
     return (p1*p2, generate_random_bitstring2(a, b))
 
 write_testcase('sample1', 'Sample 1', 6, "373337373")
-write_testcase('sample2', 'Sample 2', 10, generate_random_bitstring2(2, 5))
+write_testcase('sample2', 'Sample 2', 10, generate_random_bitstring2(5, 2))
 write_testcase('min', 'Sample 2', 4, "3333")
+write_testcase('anti-greedy', 'The team with the most points does not automatically win', 6, "3333377733777")
 
 for i in range(1, 5+1):
     prod, bitstring = random_testcase(2)
     write_testcase('random_small'+str(i), 'random example with smaller prime-numbers', prod, bitstring)
 
 for i in range(1, 5+1):
-    prod, bitstring = random_testcase(31)
+    prod, bitstring = random_testcase(48)
     write_testcase('random_large'+str(i), 'random example with larger prime-numbers', prod, bitstring)
