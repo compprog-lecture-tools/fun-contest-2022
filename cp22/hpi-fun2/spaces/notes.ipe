@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.24">
-<info created="D:20190409094512" modified="D:20220720115125"/>
+<info created="D:20190409094512" modified="D:20220720115909"/>
 <preamble>\usepackage{amsmath,amssymb}</preamble>
 <ipestyle name="presentation">
 <symbol name="arrow/arc(spx)">
@@ -402,18 +402,38 @@ h
 </ipestyle>
 <page title="Spaces">
 <layer name="alpha"/>
+<layer name="beta"/>
+<layer name="gamma"/>
+<layer name="delta"/>
+<layer name="epsilon"/>
+<layer name="zeta"/>
+<layer name="eta"/>
+<layer name="theta"/>
+<layer name="iota"/>
 <view layers="alpha" active="alpha"/>
-<text layer="alpha" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="203.26" depth="189.756" valign="top">\begin{itemize}
-\item Greedy approach: select as many words as possible which fit on one line
-\item Example 2: $aaa$ $bb$ $cc$ $ddddd$ and line width 6
-\item A greedy approach would place $aaa$ $bb$ on one line, which results in $0^2+4^2=16$, but the optimal solution is $aaa$ and $bb$ $cc$: $3^2+1^2=10$
-\item \textbf{Solution DP}
-\item start with first word $dp[0] = 0$
-\item for $w$ in words
-\item for each word after $w$ check if it fits on line
-\item $dp[j] = min(dp[j], dp[i]+(w-curr)^2)$
-\item result is min value in dp at end of a line
-\end{itemize}</text>
-<text transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top">\textbf{Problem:} Find minimal ragged text layout for a given line width and input text</text>
+<view layers="alpha beta" active="beta"/>
+<view layers="alpha beta gamma" active="gamma"/>
+<view layers="alpha beta gamma delta" active="delta"/>
+<view layers="alpha beta gamma delta epsilon" active="epsilon"/>
+<view layers="alpha beta gamma delta epsilon zeta" active="zeta"/>
+<view layers="alpha beta gamma delta epsilon zeta eta" active="eta"/>
+<view layers="alpha beta gamma delta epsilon zeta eta theta" active="theta"/>
+<view layers="alpha beta gamma delta epsilon zeta eta theta iota" active="iota"/>
+<text layer="alpha" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top">\textbf{Problem:} Find minimal ragged text layout for a given line width and input text</text>
+<text layer="beta" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="19.3928" depth="5.404" valign="top" style="item">Example 2: $aaa$ $bb$ $cc$ $ddddd$ and line width 6
+</text>
+<text layer="delta" matrix="1 0 0 1 0 -256" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="16.6824" depth="2.688" valign="top" style="item">\textbf{Solution DP}
+</text>
+<text layer="epsilon" matrix="1 0 0 1 0 -288" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="20.9244" depth="6.972" valign="top" style="item">start with first word $dp[0] = 0$
+</text>
+<text layer="gamma" matrix="1 0 0 1 0 -144" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="51.2652" depth="37.38" valign="top" style="item">A greedy approach would place $aaa$ $bb$ on one line, which results in $0^2+4^2=16$, but the optimal solution is $aaa$ and $bb$ $cc$: $3^2+1^2=10$
+</text>
+<text layer="eta" matrix="1 0 0 1 0 -352" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="16.6824" depth="2.688" valign="top" style="item">for each word after $w$ check if it fits on line
+</text>
+<text layer="zeta" matrix="1 0 0 1 0 -320" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="16.6824" depth="2.688" valign="top" style="item">for $w$ in words
+</text>
+<text layer="iota" matrix="1 0 0 1 0 -432" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="19.3928" depth="5.404" valign="top" style="item">result is min value in dp at end of a line</text>
+<text layer="theta" matrix="1 0 0 1 0 -384" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="21.812" depth="7.868" valign="top" style="item">$dp[j] = min(dp[j], dp[i]+(w-curr)^2)$
+</text>
 </page>
 </ipe>
