@@ -4,13 +4,19 @@ from pathlib import Path
 
 random.seed(9167932976977720948)
 
-def write_testcase(name, desc, pancakes):
+def write_testcase(name, desc, pancakes, answer = None):
     Path(name + '.in').write_text(str(len(pancakes)) + '\n' + pancakes + '\n')
     Path(name + '.desc').write_text(desc + '\n')
+    if answer:
+        Path(name + '.desc').write_text(answer + '\n')
 
-write_testcase('sample1', 'Sample 1 easy', 'duuuuuu')
-write_testcase('sample2', 'Sample 2 easy', 'uuuuuud')
-write_testcase('sample3', 'Sample 3 easy', 'udupudd')
+write_testcase('sample1', 'Sample 1 easy', 'duuu', '2 \n 3 4')
+write_testcase('sample2', 'Sample 2 easy', 'uuuuuud', '3 \n 7 1 7')
+write_testcase('sample3', 'Sample 3 easy', 'udududdu', '8 \n 1 2 7 2 4 1 4 7')
+alternating1 = ''.join(['u' if i%2 else 'd' for i in range(200)])
+write_testcase('alternating1', 'alternating up and down starting with up', alternating1)
+alternating2 = ''.join(['d' if i%2 else 'u' for i in range(200)])
+write_testcase('alternating2', 'alternating up and down starting with down', alternating2)
 
 # some edge cases
 write_testcase('edge_case1', 'one turn', 'd')
