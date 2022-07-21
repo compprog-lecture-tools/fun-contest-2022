@@ -51,7 +51,6 @@ def generate_random_bitstring2(a, b):
 def random_testcase(n):
     p1 = getPrime(n)
     p2 = getPrime(n)
-    print("Generated: ", p1, p2)
     a = max(p1 % 10**2, p2 % 10**2)
     b = min(p1 % 10**2, p2 % 10**2)
 
@@ -68,5 +67,5 @@ for i in range(1, 5+1):
     write_testcase('random_small'+str(i), 'random example with smaller prime-numbers', prod, bitstring)
 
 for i in range(1, 5+1):
-    prod, bitstring = random_testcase(25)
+    prod, bitstring = random_testcase(32)
     write_testcase('random_large'+str(i), 'random example with larger prime-numbers', prod, bitstring)
