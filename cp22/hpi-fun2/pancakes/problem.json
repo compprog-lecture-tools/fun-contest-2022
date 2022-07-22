@@ -1,0 +1,13 @@
+{
+  "based_on": {
+    "data": [
+      "Known Problem"
+    ],
+    "type": "other"
+  },
+  "description": "Pancake problem with greedy algo intended as solution",
+  "difficulty": 3,
+  "tags": [
+    "greedy"
+  ]
+}
