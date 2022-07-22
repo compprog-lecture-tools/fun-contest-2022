@@ -11,7 +11,7 @@ using edge_t = pair<node_t, node_t>;
 #define N_MIN 2
 #define N_MAX 100000
 #define M_MIN(n) (n - 1)
-#define M_MAX(n) (n + 8)
+#define M_MAX(n) (n + 5)
 
 
 
