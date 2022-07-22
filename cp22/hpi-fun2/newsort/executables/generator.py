@@ -24,7 +24,7 @@ write_testcase('different_lengths2', 'values have different lengths', [515111, 2
 MAX_N = 2 * 10 ** 5
 MAX_VAL = 10 ** 9
 
-write_testcase('max_input', 'Max n, max vals', [MAX_VAL] * MAX_N, 9876543210)
+write_testcase('max_input', 'Max n, max vals', [MAX_VAL - 1] * MAX_N, 9876543210)
 write_testcase('min_input', 'Min n, min val', [0], 9876543210)
 
 
