@@ -13,4 +13,3 @@ def min_cut(a):
     return cut[len(a)-1] + 1
  
 print(min_cut(input()))
-     
