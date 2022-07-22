@@ -21,10 +21,18 @@ int main(int argc, char *argv[])
     for (int i = 0; i < a0; ++i)
     {
         int ai = ouf.readInt(1, n, "a_i");
-        for (int j = 0; j < ai; ++j)
+        for (int j = 0; j < (ai / 2); ++j)
         {
             int prevPancake = ai - 1 - j;
-            pancakes[j] = not pancakes[prevPancake];
+            swap(pancakes[prevPancake], pancakes[j]);
+            pancakes[prevPancake] = not pancakes[prevPancake];
+            pancakes[j] = not pancakes[j];
+        }
+        if (ai % 2 == 1)
+        {
+            // If we flipped an uneven number of pancakes, we still need to flip the on in the middle.
+            int middle = (ai / 2) + 1;
+            pancakes[middle] = not pancakes[middle];
         }
     }
     for (int i = 0; i < n; ++i)
