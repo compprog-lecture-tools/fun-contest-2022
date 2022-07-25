@@ -1,0 +1,7 @@
+{
+  "description": "longest path in DAG with vertex weights and story",
+  "difficulty": 2,
+  "tags": [
+    "dp"
+  ]
+}
