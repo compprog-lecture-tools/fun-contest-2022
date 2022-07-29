@@ -3,8 +3,9 @@
 
 using namespace std;
 
-const string_view SAMPLE1 = R"(2
+const string_view SAMPLE1 = R"(3
 1 1
+1 -1
 -1 -1)";
 
 const string_view SAMPLE2 = R"(11
