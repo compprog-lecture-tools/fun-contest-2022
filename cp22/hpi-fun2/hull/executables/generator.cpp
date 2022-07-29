@@ -72,15 +72,38 @@ int main(int argc, char *argv[])
     sample(1, SAMPLE1);
     sample(2, SAMPLE2);
 
-    predefined("overflow", "Overflow #1", R"(2
+    predefined("overflow", "Overflow #1", R"(3
 1000000000 1000000000
+1000000000 -1000000000
 -1000000000 -1000000000)");
 
-    predefined("overflow2", "Overflow #2", R"(2
-1000000000 -1000000000
--1000000000 1000000000)");
+    predefined("overflow2", "Overflow #2", R"(3
+999999999 -999999999
+999999999 -999999999
+-999999999 999999999)");
 
-    for (int i = 1; i <= 100; i++)
+    predefined("collinear1", "Collinear #1", R"(4
+0 1
+1 1
+2 1
+3 1)");
+    predefined("collinear2", "Collinear #2", R"(4
+1 0
+1 1
+1 2
+1 3)");
+    predefined("collinear3", "Collinear #3", R"(4
+0 0
+1 1
+2 2
+3 3)");
+    predefined("collinear4", "Collinear #4", R"(4
+0 0
+-1 1
+-2 2
+-3 3)");
+
+    for (int i = 1; i <= 10; i++)
         testcase("random" + toString(i),
                  "Random #" + toString(i),
                  [&]
