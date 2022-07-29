@@ -42,18 +42,24 @@ void sample(int num, string_view content)
     predefined("sample" + num_str, "Sample #" + num_str, content);
 }
 
-const int MIN_N = 1e5;
-const int MAX_N = 1e5;
+const int MIN_N = 3;
+const int MAX_N = 2e5;
 const int MIN = -1e9;
 const int MAX = 1e9;
 
 auto random(int n)
 {
     cout << n << endl;
+    set<pair<int, int>> used;
+    pair<int, int> point;
     for (int i = 0; i < n; i++)
     {
-        cout << rnd.next(MIN, MAX) << " "
-             << rnd.next(MIN, MAX) << endl;
+        do
+        {
+            point = {rnd.next(MIN, MAX), rnd.next(MIN, MAX)};
+        } while (used.count(point));
+        used.insert(point);
+        cout << point.first << " " << point.second << endl;
     }
 }
 
