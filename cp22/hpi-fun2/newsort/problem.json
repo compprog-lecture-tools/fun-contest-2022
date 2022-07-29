@@ -1,0 +1,13 @@
+{
+  "based_on": {
+    "data": [
+      "Leetcode Alien Dictionary"
+    ],
+    "type": "other"
+  },
+  "description": "given list of numbers, decide if they are sorted increasingly based on a new order of digits",
+  "difficulty": 1,
+  "tags": [
+    "sortings"
+  ]
+}
