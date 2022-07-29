@@ -22,10 +22,10 @@ write_testcase('different_lengths', 'values have different lengths', [0, 0000], 
 write_testcase('different_lengths2', 'values have different lengths', [515111, 23333, 85666666], 1234567890)
 
 MAX_N = 2 * 10 ** 5
-MAX_VAL = 10 ** 9
+MAX_VAL_LEN = 9
 
-write_testcase('max_input', 'Max n, max vals', [MAX_VAL - 1] * MAX_N, 9876543210)
-write_testcase('min_input', 'Min n, min val', [0], 9876543210)
+write_testcase('max_input', 'Max n, max vals', [10 ** MAX_VAL_LEN - 1] * MAX_N, '0123456789')
+write_testcase('min_input', 'Min n, min val', [0], '0123456789')
 
 
 def random_order():
@@ -37,51 +37,50 @@ def random_order():
     return str(''.join(map(str, numArray)))
 
 
-def random_value(zero_equiv):
-    val = random.randrange(1, MAX_VAL)
-    val_without_leading_zeros = str(val).lstrip(zero_equiv)
+def random_value():
+    return random.randrange(10 ** MAX_VAL_LEN)
 
-    if len(val_without_leading_zeros) == 0:
-        return int(zero_equiv)
-    return int(str(val).lstrip(zero_equiv))
+
+def mapped_values(vals, ordering):
+    result = []
+    for val in vals:
+        new_val = []
+        for c in str(val):
+            new_val.append(ordering[int(c)])
+        result.append("".join(new_val))
+    return result
 
 
 for i in range(1, 5 + 1):
     numbersArray = []
     random_order_list = random_order()
-    zero_equiv = random_order_list[0]
-    for j in range(0, MAX_N):
-        numbersArray.append(random_value(str(zero_equiv)))
+    n = random.randrange(1, MAX_N + 1)
+    for _ in range(n):
+        numbersArray.append(random_value())
+    numbersArray = mapped_values(numbersArray, random_order_list)
     write_testcase(f"random{i}", f"Random {i}", numbersArray, random_order_list)
 
 numbersArray = []
 
-for i in range(0, MAX_N):
-    numbersArray.append(random_value("0"))
+for i in range(MAX_N):
+    numbersArray.append(random_value())
 
 numbersArray.sort()
 write_testcase('worst_runtime_but_positive', 'ascending til the end', numbersArray, '0123456789')
 numbersArray[-1] = 1
 write_testcase('worst_runtime_but_negative', 'ascending til the end', numbersArray, '0123456789')
 
-order = '0423158769'  # 1 <-> 4 and 8 <-> 6
+for i in range(1, 5 + 1):
+    ordering = random_order()
 
-numbersArray = []
-for i in range(0, MAX_N):
-    numbersArray.append(random_value("0"))
-numbersArray.sort()
-for i in range(0, len(numbersArray)):
-    num = str(numbersArray[i])
-    num = num.replace("1", "!")
-    num = num.replace("4", "1")
-    num = num.replace("!", "4")
-    num = num.replace("8", "!")
-    num = num.replace("6", "8")
-    num = num.replace("!", "6")
-    numbersArray[i] = int(num)
+    numbersArray = []
+    for _ in range(MAX_N):
+        numbersArray.append(random_value())
+    numbersArray.sort()
 
-write_testcase('worst_runtime_random_positive', 'ascending til the end with random order', numbersArray, order)
-numbersArray[-1] = 0
-write_testcase('worst_runtime_random_negative', 'ascending til the end with random order but last is smallest',
-               numbersArray, order)
+    write_testcase(f"worst_runtime_random_positive{i}", 'ascending til the end with random order',
+                   mapped_values(numbersArray, ordering), ordering)
+    numbersArray[-1] = 0
+    write_testcase(f"worst_runtime_random_negative{i}", 'ascending til the end with random order but last is smallest',
+                   mapped_values(numbersArray, ordering), ordering)
 
