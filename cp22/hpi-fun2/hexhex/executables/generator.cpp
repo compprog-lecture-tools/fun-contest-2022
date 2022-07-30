@@ -98,7 +98,7 @@ void sample(int num, string_view content) {
 
 const int MIN_X = -1e9;
 const int MAX_X = 1e9;
-const int MAX_TC = 50;
+const int MAX_TC = 30;
 const int MAX_SUM = 200;
 void random(int num) {
     auto num_str = toString(num);
@@ -141,7 +141,7 @@ int main(int argc, char *argv[]) {
 
     sample(1, SAMPLE1);
 
-    for (int i = 1; i <= 20; i++)
+    for (int i = 1; i <= 10; i++)
         random(i);
 
     for (int i = 1; i <= 10; i++)
