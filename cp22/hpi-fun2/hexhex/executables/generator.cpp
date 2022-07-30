@@ -148,9 +148,9 @@ int main(int argc, char *argv[]) {
         impossible(i);
 
     testcase("anti-pruning", "Anti-pruning", [&]() {
-        vector<int> H = {2, 3, 4};
+        vector<pair<int, int>> testcases;
+        vector<int> H = {2, 3, 5, 7};
         int sum = 0;
-        cout << MAX_LEVEL * H.size() << endl;
         for (int h : H) {
             int solution = 0;
             int w = h;
@@ -159,18 +159,21 @@ int main(int argc, char *argv[]) {
                 ++solution;
                 sum += solution;
                 if (sum > MAX_SUM)
-                    return;
-                cout << h << " " << w << endl;
+                    break;
+                testcases.emplace_back(h, w);
             }
             for (int i = MAX_LEVEL - 3; i < MAX_LEVEL; i++) {
                 w += primes[i];
                 ++solution;
                 sum += solution;
                 if (sum > MAX_SUM)
-                    return;
-                cout << h << " " << w << endl;
+                    break;
+                testcases.emplace_back(h, w);
             }
         }
+        cout << testcases.size() << endl;
+        for (auto [h, w] : testcases)
+            cout << h << " " << w << endl;
     });
 
     return 0;
