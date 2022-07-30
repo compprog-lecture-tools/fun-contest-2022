@@ -116,9 +116,9 @@ void random(int num) {
             if (sum <= MAX_SUM)
                 testcases.emplace_back(h, w);
         }
-        cout << testcases.size() << endl;
+        cout << dec << testcases.size() << endl;
         for (auto [h, w] : testcases)
-            cout << h << " " << w << endl;
+            cout << hex << h << " " << w << endl;
     });
 }
 void impossible(int num) {
@@ -131,15 +131,13 @@ void impossible(int num) {
             w = random_walk(h, 20);
             solution = bfs(h, w);
         } while (solution != -1);
-        cout << h << " " << w << endl;
+        cout << hex << h << " " << w << endl;
     });
 }
 
 int main(int argc, char *argv[]) {
     registerGen(argc, argv, 1);
     rnd.setSeed(-5483929211109496621ll);
-
-    cout << hex;
 
     sample(1, SAMPLE1);
 
@@ -152,7 +150,7 @@ int main(int argc, char *argv[]) {
     testcase("anti-pruning", "Anti-pruning", [&]() {
         vector<int> H = {2, 3, 4};
         int sum = 0;
-        cout << MAX_LEVEL * H.size() << endl;
+        cout << dec << MAX_LEVEL * H.size() << endl;
         for (int h : H) {
             int solution = 0;
             int w = h;
@@ -162,7 +160,7 @@ int main(int argc, char *argv[]) {
                 sum += solution;
                 if (sum > MAX_SUM)
                     return;
-                cout << h << " " << w << endl;
+                cout << hex << h << " " << w << endl;
             }
             for (int i = MAX_LEVEL - 3; i < MAX_LEVEL; i++) {
                 w += primes[i];
@@ -170,7 +168,7 @@ int main(int argc, char *argv[]) {
                 sum += solution;
                 if (sum > MAX_SUM)
                     return;
-                cout << h << " " << w << endl;
+                cout << hex << h << " " << w << endl;
             }
         }
     });
