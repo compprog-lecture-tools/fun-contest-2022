@@ -99,7 +99,7 @@ void sample(int num, string_view content) {
 const int MIN_X = -1e9;
 const int MAX_X = 1e9;
 const int MAX_TC = 30;
-const int MAX_SUM = 200;
+const int MAX_SUM = 100;
 void random(int num) {
     auto num_str = toString(num);
     testcase("random" + num_str, "Random #" + num_str, [&]() {
