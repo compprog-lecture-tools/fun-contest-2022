@@ -32,12 +32,19 @@ def dfs(x, d=0):
 def solve():
     global max_depth, w
     h, w = map(int, input().split())
-    for i in range(13):
-        max_depth = i
+    lo = 0
+    hi = 13
+    while lo < hi:
+        mid = (lo + hi) // 2
+        max_depth = mid
         if dfs(h):
-            print(i)
-            return
-    print(-1)
+            hi = mid
+        else:
+            lo = mid + 1
+    if lo == 13:
+        print(-1)
+    else:
+        print(lo)
 
 
 t = int(input())

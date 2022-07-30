@@ -98,8 +98,8 @@ void sample(int num, string_view content) {
 
 const int MIN_X = -1e9;
 const int MAX_X = 1e9;
-const int MAX_TC = 30;
-const int MAX_SUM = 100;
+const int MAX_TC = 50;
+const int MAX_SUM = 150;
 void random(int num) {
     auto num_str = toString(num);
     testcase("random" + num_str, "Random #" + num_str, [&]() {
@@ -149,7 +149,7 @@ int main(int argc, char *argv[]) {
 
     testcase("anti-pruning", "Anti-pruning", [&]() {
         vector<pair<int, int>> testcases;
-        vector<int> H = {2, 3, 5, 7};
+        vector<int> H = {3, -3, 2};
         int sum = 0;
         for (int h : H) {
             int solution = 0;
