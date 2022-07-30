@@ -41,7 +41,7 @@ void solve() {
     const int MAX_SOLUTION = 12;
 
     int h;
-    cin >> hex >> h >> w;
+    cin >> h >> w;
 
     rep(i, MAX_SOLUTION + 1) {
         if (dfs(h, i)) {

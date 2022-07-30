@@ -75,9 +75,9 @@ int random_walk(ll h, int max_solution) {
 const string_view SAMPLE1 = R"(5
 1 1
 -1 2
-2A -45
-EB4 CB5B3
-ABC ABCDEF)";
+42 -69
+3764 832947
+123 1234567)";
 
 template <class F> void testcase(string name, string desc, F f) {
     ofstream desc_file(name + ".desc");
@@ -116,9 +116,9 @@ void random(int num) {
             if (sum <= MAX_SUM)
                 testcases.emplace_back(h, w);
         }
-        cout << dec << testcases.size() << endl;
+        cout << testcases.size() << endl;
         for (auto [h, w] : testcases)
-            cout << hex << h << " " << w << endl;
+            cout << h << " " << w << endl;
     });
 }
 void impossible(int num) {
@@ -131,7 +131,7 @@ void impossible(int num) {
             w = random_walk(h, 20);
             solution = bfs(h, w);
         } while (solution != -1);
-        cout << hex << h << " " << w << endl;
+        cout << h << " " << w << endl;
     });
 }
 
@@ -150,7 +150,7 @@ int main(int argc, char *argv[]) {
     testcase("anti-pruning", "Anti-pruning", [&]() {
         vector<int> H = {2, 3, 4};
         int sum = 0;
-        cout << dec << MAX_LEVEL * H.size() << endl;
+        cout << MAX_LEVEL * H.size() << endl;
         for (int h : H) {
             int solution = 0;
             int w = h;
@@ -160,7 +160,7 @@ int main(int argc, char *argv[]) {
                 sum += solution;
                 if (sum > MAX_SUM)
                     return;
-                cout << hex << h << " " << w << endl;
+                cout << h << " " << w << endl;
             }
             for (int i = MAX_LEVEL - 3; i < MAX_LEVEL; i++) {
                 w += primes[i];
@@ -168,7 +168,7 @@ int main(int argc, char *argv[]) {
                 sum += solution;
                 if (sum > MAX_SUM)
                     return;
-                cout << hex << h << " " << w << endl;
+                cout << h << " " << w << endl;
             }
         }
     });
