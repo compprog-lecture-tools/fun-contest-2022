@@ -15,22 +15,19 @@ int primes[] = {
 };
 // clang-format on
 
-ll left_bound = -1e9;
-ll right_bound = 1e9;
+ll left_bound = 0;
+ll right_bound = 2e9;
 
 const int INF = 1e9;
 const int MAX_SOLUTION = 12;
 
-int global_min = MAX_SOLUTION;
 int w;
 int dfs(ll x, int d = 0) {
     if (left_bound > x || right_bound < x)
         return INF;
-    if (w == x) {
-        global_min = min(global_min, d);
+    if (w == x)
         return d;
-    }
-    if (d >= global_min)
+    if (d >= MAX_SOLUTION)
         return INF;
     ll p = primes[d];
     return min({dfs(x + p, d + 1), dfs(x - p, d + 1), dfs(x * p, d + 1),
@@ -39,8 +36,7 @@ int dfs(ll x, int d = 0) {
 
 void solve() {
     int h;
-    cin >> h >> w;
-    global_min = MAX_SOLUTION;
+    cin >> hex >> h >> w;
     int s = dfs(h);
     cout << (s != INF ? s : -1) << "\n";
 }

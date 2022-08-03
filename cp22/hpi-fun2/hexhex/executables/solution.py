@@ -1,6 +1,8 @@
 import io
 import os
 
+from regex import X
+
 input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline
 
 primes = [
@@ -11,19 +13,19 @@ primes = [
 ]
 
 
-left_bound = int(-1e9)
-right_bound = int(1e9)
+left_bound = 0
+right_bound = int(2e9)
 
 max_depth = 0
 w = 0
 
 
 def dfs(x, d=0):
-    if not left_bound <= x <= right_bound:
+    if not (left_bound <= x <= right_bound):
         return False
     if x == w:
         return True
-    if d == max_depth:
+    if d >= max_depth:
         return False
     p = primes[d]
     return dfs(x + p, d + 1) or dfs(x - p, d + 1) or dfs(x * p, d + 1) or dfs(x // p, d + 1)
@@ -31,20 +33,16 @@ def dfs(x, d=0):
 
 def solve():
     global max_depth, w
-    h, w = map(int, input().split())
-    lo = 0
-    hi = 13
-    while lo < hi:
-        mid = (lo + hi) // 2
-        max_depth = mid
+    h, w = input().split()
+    h = int(h, 16)
+    w = int(w, 16)
+
+    for i in range(13):
+        max_depth = i
         if dfs(h):
-            hi = mid
-        else:
-            lo = mid + 1
-    if lo == 13:
-        print(-1)
-    else:
-        print(lo)
+            print(i)
+            return
+    print(-1)
 
 
 t = int(input())

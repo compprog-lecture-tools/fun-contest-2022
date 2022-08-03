@@ -15,8 +15,8 @@ int primes[] = {
 };
 // clang-format on
 
-const ll left_bound = -1e9;
-const ll right_bound = 1e9;
+const ll left_bound = 0;
+const ll right_bound = 2e9;
 
 const int MAX_LEVEL = 12;
 int bfs(int h, int w) {
@@ -96,10 +96,19 @@ void sample(int num, string_view content) {
     predefined("sample" + num_str, "Sample #" + num_str, content);
 }
 
-const int MIN_X = -1e9;
-const int MAX_X = 1e9;
+const int MIN_X = left_bound;
+const int MAX_X = right_bound;
 const int MAX_TC = 50;
 const int MAX_SUM = 150;
+
+void print_tc(const vector<pair<int, int>> &tc) {
+    assert(tc.size() <= MAX_TC);
+    cout << dec << tc.size() << "\n";
+    for (auto [h, w] : tc)
+        cout << hex << h << " " << w << "\n";
+    cout << dec;
+}
+
 void random(int num) {
     auto num_str = toString(num);
     testcase("random" + num_str, "Random #" + num_str, [&]() {
@@ -108,30 +117,35 @@ void random(int num) {
         for (int i = 0; i < MAX_TC && sum < MAX_SUM; i++) {
             int h = rnd.next(MIN_X, MAX_X);
             int max_len = rnd.next(1, min(MAX_LEVEL + 1, MAX_SUM - sum));
+
             int w = random_walk(h, max_len);
             int solution = bfs(h, w);
+
             if (solution == -1)
                 solution = max_len;
             sum += solution;
+
             if (sum <= MAX_SUM)
                 testcases.emplace_back(h, w);
         }
-        cout << testcases.size() << endl;
-        for (auto [h, w] : testcases)
-            cout << h << " " << w << endl;
+        print_tc(testcases);
     });
 }
-void impossible(int num) {
+
+void anti_pruning(int num) {
     auto num_str = toString(num);
-    testcase("impossible" + num_str, "Impossible #" + num_str, [&]() {
-        cout << "1" << endl;
-        int h = rnd.next(MIN_X, MAX_X);
-        int w, solution = 0;
-        do {
-            w = random_walk(h, 20);
-            solution = bfs(h, w);
-        } while (solution != -1);
-        cout << h << " " << w << endl;
+    testcase("anti-pruning" + num_str, "Anti-pruning #" + num_str, [&]() {
+        vector<pair<int, int>> testcases;
+        int solution = 3;
+
+        for (int i = 0; i < min(MAX_TC, MAX_SUM / solution); i++) {
+            int h = rnd.next(MIN_X, MAX_X);
+            int w = h;
+            for (int j = 0; j < solution; j++)
+                w /= primes[j];
+            testcases.emplace_back(h, w);
+        }
+        print_tc(testcases);
     });
 }
 
@@ -144,37 +158,8 @@ int main(int argc, char *argv[]) {
     for (int i = 1; i <= 10; i++)
         random(i);
 
-    for (int i = 1; i <= 10; i++)
-        impossible(i);
-
-    testcase("anti-pruning", "Anti-pruning", [&]() {
-        vector<pair<int, int>> testcases;
-        vector<int> H = {3, -3, 2};
-        int sum = 0;
-        for (int h : H) {
-            int solution = 0;
-            int w = h;
-            for (int i = 0; i < MAX_LEVEL - 3; i++) {
-                w *= primes[i];
-                ++solution;
-                sum += solution;
-                if (sum > MAX_SUM)
-                    break;
-                testcases.emplace_back(h, w);
-            }
-            for (int i = MAX_LEVEL - 3; i < MAX_LEVEL; i++) {
-                w += primes[i];
-                ++solution;
-                sum += solution;
-                if (sum > MAX_SUM)
-                    break;
-                testcases.emplace_back(h, w);
-            }
-        }
-        cout << testcases.size() << endl;
-        for (auto [h, w] : testcases)
-            cout << h << " " << w << endl;
-    });
+    for (int i = 1; i <= 3; i++)
+        anti_pruning(i);
 
     return 0;
 }

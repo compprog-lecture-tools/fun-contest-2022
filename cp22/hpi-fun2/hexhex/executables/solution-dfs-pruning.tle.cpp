@@ -18,38 +18,31 @@ int primes[] = {
 ll left_bound = 0;
 ll right_bound = 2e9;
 
-int w;
-int max_depth;
-bool _dfs(ll x, int d = 0) {
-    if (left_bound > x || right_bound < x)
-        return false;
-    if (w == x)
-        return true;
-    if (d == max_depth)
-        return false;
-    ll p = primes[d];
-    return _dfs(x + p, d + 1) || _dfs(x - p, d + 1) || _dfs(x * p, d + 1) ||
-           _dfs(x / p, d + 1);
-}
+const int INF = 1e9;
+const int MAX_SOLUTION = 12;
 
-bool dfs(int x, int max_d) {
-    max_depth = max_d;
-    return _dfs(x);
+int global_min = MAX_SOLUTION;
+int w;
+int dfs(ll x, int d = 0) {
+    if (left_bound > x || right_bound < x)
+        return INF;
+    if (w == x) {
+        global_min = min(global_min, d);
+        return d;
+    }
+    if (d >= global_min)
+        return INF;
+    ll p = primes[d];
+    return min({dfs(x + p, d + 1), dfs(x - p, d + 1), dfs(x * p, d + 1),
+                dfs(x / p, d + 1)});
 }
 
 void solve() {
-    const int MAX_SOLUTION = 12;
-
     int h;
     cin >> hex >> h >> w;
-
-    rep(i, MAX_SOLUTION + 1) {
-        if (dfs(h, i)) {
-            cout << i << "\n";
-            return;
-        }
-    }
-    cout << -1 << "\n";
+    global_min = MAX_SOLUTION;
+    int s = dfs(h);
+    cout << (s != INF ? s : -1) << "\n";
 }
 
 int main() {
