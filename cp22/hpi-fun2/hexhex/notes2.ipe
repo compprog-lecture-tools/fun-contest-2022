@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70212" creator="Ipe 7.2.13">
-<info created="D:20190409094512" modified="D:20220730195656"/>
+<info created="D:20190409094512" modified="D:20220803135418"/>
 <preamble>\usepackage{amsmath,amssymb}</preamble>
 <ipestyle name="presentation">
 <symbol name="arrow/arc(spx)">
@@ -404,8 +404,8 @@ h
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
 <text layer="alpha" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.8592" depth="22.96" valign="top" style="item">Solution: solve the decision problem with dfs and linear search $s$ (or binary search $s$)</text>
-<text transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top">\textbf{Problem:} Find the sortest path from root to a node in a 4-ary tree with height $s\leq 12$ using less than 1 MB RAM.</text>
+<text transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top">\textbf{Problem:} Find the shortest path $s\leq 12$ from root to a node in a 4-ary tree using less than 1 MB RAM.</text>
 <text matrix="1 0 0 1 0 -176" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="37.6544" depth="23.716" valign="top" style="item">Worst case (linear search): traversal of $ (s+1)\cdot4^0 + s\cdot 4^1 + \ldots + 1\cdot4^s \leq 2\cdot4^s$ nodes</text>
-<text matrix="1 0 0 1 0 -256" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="20.9244" depth="6.972" valign="top" style="item">Space complexity: still $\mathcal{O}(d)$</text>
+<text matrix="1 0 0 1 0 -256" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="20.9244" depth="6.972" valign="top" style="item">Space complexity: still $\mathcal{O}(s)$</text>
 </page>
 </ipe>

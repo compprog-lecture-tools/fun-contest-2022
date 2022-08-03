@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70212" creator="Ipe 7.2.13">
-<info created="D:20190409094512" modified="D:20220730194112"/>
+<info created="D:20190409094512" modified="D:20220803135453"/>
 <preamble>\usepackage{amsmath,amssymb}</preamble>
 <ipestyle name="presentation">
 <symbol name="arrow/arc(spx)">
@@ -404,12 +404,12 @@ h
 <layer name="alpha"/>
 <view layers="alpha" active="alpha"/>
 <text layer="alpha" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="19.3928" depth="5.404" valign="top" style="item">Naïve approach: BFS</text>
-<text transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top">\textbf{Problem:} Find the sortest path from root to a node in a 4-ary tree with height $s\leq 12$ using less than 1 MB RAM.</text>
+<text transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top">\textbf{Problem:} Find the shortest path $s\leq 12$ from root to a node in a 4-ary tree using less than 1 MB RAM.</text>
 <text matrix="1 0 0 1 0 -144" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="20.9244" depth="6.972" valign="top" style="item">Worst case: traversal of $\mathcal{O}(4^s)$ nodes</text>
 <text matrix="1 0 0 1 0 -192" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="20.9244" depth="6.972" valign="top" style="item">But: $\mathcal{O}(4^s)$ space complexity too! </text>
 <text matrix="1 0 0 1 0 -240" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="19.3928" depth="5.404" valign="top" style="item">Better approach: DFS with depth limit $12$</text>
 <text matrix="1 0 0 1 0 -336" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="35.042" depth="21.14" valign="top" style="item">Time complexity: traversal of $\approx4^{12}$ nodes -- even when $s$ is small.</text>
-<text matrix="1 0 0 1 0 -288" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="20.9244" depth="6.972" valign="top" style="item">Space complexity: $\mathcal{O}(d)$!</text>
+<text matrix="1 0 0 1 0 -288" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="20.9244" depth="6.972" valign="top" style="item">Space complexity: $\mathcal{O}(s)$!</text>
 <text matrix="1 0 0 1 0 -416" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.8592" depth="22.96" valign="top" style="item">Side Note: Pruning can improve the avg. time drastically (up to 8x faster) but anti-pruning test case</text>
 </page>
 </ipe>
