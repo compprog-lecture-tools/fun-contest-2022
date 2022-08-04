@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70212" creator="Ipe 7.2.13">
-<info created="D:20190409094512" modified="D:20220804211518"/>
+<info created="D:20190409094512" modified="D:20220804213849"/>
 <preamble>\usepackage{amsmath,amssymb}</preamble>
 <ipestyle name="presentation">
 <symbol name="arrow/arc(spx)">
@@ -403,7 +403,7 @@ h
 <page title="Hexhex" section="" subsection="">
 <layer name="alpha"/>
 <layer name="beta"/>
-<view layers="alpha beta" active="alpha"/>
+<view layers="alpha" active="alpha" marked="yes"/>
 <view layers="alpha beta" active="beta"/>
 <text layer="alpha" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="19.3928" depth="5.404" valign="top" style="item">Naïve approach: BFS</text>
 <text transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top">\textbf{Problem:} Find the shortest path $s\leq 12$ from root to a node in a 4-ary tree using less than 10 MB RAM.</text>
