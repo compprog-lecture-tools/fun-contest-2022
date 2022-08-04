@@ -1,8 +1,6 @@
 import io
 import os
 
-from regex import X
-
 input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline
 
 primes = [
