@@ -72,12 +72,13 @@ int random_walk(ll h, int max_solution) {
     return h;
 }
 
-const string_view SAMPLE1 = R"(5
+const string_view SAMPLE1 = R"(6
 1 1
 1 2
 42 69
 DEAD BAD
-C001 C0DE)";
+C001 C0DE
+BAD CAB1E)";
 
 template <class F> void testcase(string name, string desc, F f) {
     ofstream desc_file(name + ".desc");
