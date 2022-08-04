@@ -99,8 +99,8 @@ void sample(int num, string_view content) {
 
 const int MIN_X = left_bound;
 const int MAX_X = right_bound;
-const int MAX_TC = 50;
-const int MAX_SUM = 150;
+const int MAX_TC = 100;
+const int MAX_SUM = 200;
 
 void print_tc(const vector<pair<int, int>> &tc) {
     assert(tc.size() <= MAX_TC);
@@ -133,17 +133,21 @@ void random(int num) {
     });
 }
 
-void anti_pruning(int num) {
+void anti_pruning(int num, function<int(int, int)> op) {
     auto num_str = toString(num);
     testcase("anti-pruning" + num_str, "Anti-pruning #" + num_str, [&]() {
         vector<pair<int, int>> testcases;
         int solution = 3;
 
         for (int i = 0; i < min(MAX_TC, MAX_SUM / solution); i++) {
-            int h = rnd.next(MIN_X, MAX_X);
-            int w = h;
-            for (int j = 0; j < solution; j++)
-                w /= primes[j];
+            int w, h;
+            do {
+                h = rnd.next(MIN_X, MAX_X);
+                w = h;
+                for (int j = 0; j < solution; j++)
+                    w = op(w, primes[j]);
+
+            } while (!(left_bound <= w && w <= right_bound));
             testcases.emplace_back(h, w);
         }
         print_tc(testcases);
@@ -160,7 +164,13 @@ int main(int argc, char *argv[]) {
         random(i);
 
     for (int i = 1; i <= 3; i++)
-        anti_pruning(i);
+        anti_pruning(i, multiplies<int>());
+    for (int i = 4; i <= 6; i++)
+        anti_pruning(i, divides<int>());
+    for (int i = 7; i <= 9; i++)
+        anti_pruning(i, plus<int>());
+    for (int i = 10; i <= 12; i++)
+        anti_pruning(i, minus<int>());
 
     return 0;
 }
