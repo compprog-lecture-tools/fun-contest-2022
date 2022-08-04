@@ -24,7 +24,7 @@ int bfs(int h, int w) {
     int level_size = 1;
     int next_level_size = 0;
 
-    queue<ll> q;
+    queue<int> q;
     q.push(h);
 
     while (!q.empty() && level <= MAX_LEVEL) {
@@ -40,14 +40,29 @@ int bfs(int h, int w) {
             continue;
         if (v == w)
             return level;
-        if (MAX_LEVEL <= level)
-            continue;
         int p = primes[level];
-        q.push(v + p);
-        q.push(v - p);
-        q.push(v * p);
-        q.push(v / p);
-        next_level_size += 4;
+        if (MAX_LEVEL - 1 == level) {
+            if (v + p == w || v - p == w || v * p == w || v / p == w)
+                return MAX_LEVEL;
+            else
+                continue;
+        }
+        if (left_bound <= v + p && v + p <= right_bound) {
+            q.push(v + p);
+            next_level_size++;
+        }
+        if (left_bound <= v - p && v - p <= right_bound) {
+            q.push(v - p);
+            next_level_size++;
+        }
+        if (left_bound <= v * p && v * p <= right_bound) {
+            q.push(v * p);
+            next_level_size++;
+        }
+        if (left_bound <= v / p && v / p <= right_bound) {
+            q.push(v / p);
+            next_level_size++;
+        }
     }
     return -1;
 }
