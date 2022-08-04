@@ -1,0 +1,17 @@
+{
+  "based_on": {
+    "data": [
+      "cp22",
+      "04-dp",
+      "farida"
+    ],
+    "type": "old-problem"
+  },
+  "description": "farida on graph",
+  "difficulty": 4,
+  "tags": [
+    "combinatorics",
+    "dp",
+    "graphs"
+  ]
+}
