@@ -1,8 +1,6 @@
 import io
 import os
 
-input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline
-
 primes = [
     2, 3, 5, 7,
     11, 13, 17, 19,
