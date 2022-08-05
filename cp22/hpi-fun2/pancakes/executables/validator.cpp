@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
         if (ai % 2 == 1)
         {
             // If we flipped an uneven number of pancakes, we still need to flip the on in the middle.
-            int middle = (ai / 2) + 1;
+            int middle = ai / 2;
             pancakes[middle] = not pancakes[middle];
         }
     }
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
         {
             for (bool pancake : pancakes)
             {
-                cout << pancake ? 'u' : 'd';
+                cout << (pancake ? 'u' : 'd');
             }
             cout << endl;
             quit(_wa, "all pancakes must be turned correctly.");
