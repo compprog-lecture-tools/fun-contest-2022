@@ -40,12 +40,9 @@ int bfs(int h, int w) {
             continue;
         if (v == w)
             return level;
-        int p = primes[level];
-        if (MAX_LEVEL - 1 == level) {
-            if (v + p == w || v - p == w || v * p == w || v / p == w)
-                return MAX_LEVEL;
-            else
-                continue;
+        ll p = primes[level];
+        if (MAX_LEVEL == level) {
+            continue;
         }
         if (left_bound <= v + p && v + p <= right_bound) {
             q.push(v + p);
