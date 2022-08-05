@@ -133,7 +133,7 @@ void random(int num) {
     });
 }
 
-void anti_pruning(int num, function<int(int, int)> op) {
+void anti_pruning(int num, function<ll(ll, ll)> op) {
     auto num_str = toString(num);
     testcase("anti-pruning" + num_str, "Anti-pruning #" + num_str, [&]() {
         vector<pair<int, int>> testcases;
@@ -170,6 +170,8 @@ int main(int argc, char *argv[]) {
         anti_pruning(i, plus<ll>());
     for (int i = 6; i <= 9; i++)
         anti_pruning(i, minus<ll>());
+    for (int i = 10; i <= 12; i++)
+        anti_pruning(i, multiplies<ll>());
 
     return 0;
 }
