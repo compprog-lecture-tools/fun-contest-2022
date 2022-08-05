@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70218" creator="Ipe 7.2.24">
-<info created="D:20190409094512" modified="D:20220709001411"/>
+<ipe version="70218" creator="Ipe 7.2.26">
+<info created="D:20190409094512" modified="D:20220805103257"/>
 <preamble>\usepackage{amsmath,amssymb}</preamble>
 <ipestyle name="presentation">
 <symbol name="arrow/arc(spx)">
@@ -402,10 +402,19 @@ h
 </ipestyle>
 <page title="Pancakes">
 <layer name="alpha"/>
+<layer name="beta"/>
+<layer name="gamma"/>
+<layer name="delta"/>
+<layer name="epsilon"/>
 <view layers="alpha" active="alpha"/>
-<text layer="alpha" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top" style="item">No optimal solution is needed here. A greedy version is enough.</text>
-<text transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="50.1172" depth="36.204" valign="top">\textbf{Problem:} Given a sequence of bits. How to flip all bits to 1 (&apos;up&apos;) when you always have to flip the first k many bits</text>
-<text matrix="1 0 0 1 0 -176" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="52.8248" depth="38.92" valign="top" style="item">Iterate through the sequence and whenever the next items orientation / bit value does not match, turn all previous bits.</text>
-<text matrix="1 0 0 1 0 -288" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.8592" depth="22.96" valign="top" style="item">Final additional flip may be needed if the orientation of the last pancake is &apos;down&apos; (or 0)</text>
+<view layers="alpha beta" active="beta"/>
+<view layers="alpha beta gamma" active="gamma"/>
+<view layers="alpha beta gamma delta" active="delta"/>
+<view layers="alpha beta gamma delta epsilon" active="epsilon"/>
+<text layer="beta" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top" style="item">No optimal solution is needed here. A greedy version is enough.</text>
+<text layer="alpha" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="52.8248" depth="38.92" valign="top">\textbf{Problem:} Given a sequence of bits. How to flip all bits to 1 (&apos;up&apos;) when you always have to flip+mirror the first k many bits</text>
+<text layer="gamma" matrix="1 0 0 1 0 -176" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="52.8248" depth="38.92" valign="top" style="item">Iterate through the sequence and whenever the next item&apos;s orientation / bit value does not match, turn all previous bits.</text>
+<text layer="delta" matrix="1 0 0 1 0 -288" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.8592" depth="22.96" valign="top" style="item">Final additional flip may be needed if the orientation of the last pancake is &apos;down&apos; (or 0)</text>
+<text layer="epsilon" matrix="1 0 0 1 0 -368" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="19.3928" depth="5.404" valign="top" style="item">This is actually optimal!</text>
 </page>
 </ipe>
