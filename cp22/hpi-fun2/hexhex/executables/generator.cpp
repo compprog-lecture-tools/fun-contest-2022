@@ -140,12 +140,13 @@ void anti_pruning(int num, function<int(int, int)> op) {
         int solution = 3;
 
         for (int i = 0; i < min(MAX_TC, MAX_SUM / solution); i++) {
-            int w, h;
+            ll w, h;
             do {
                 h = rnd.next(MIN_X, MAX_X);
                 w = h;
-                for (int j = 0; j < solution; j++)
+                for (int j = 0; j < solution; j++) {
                     w = op(w, primes[j]);
+                }
 
             } while (!(left_bound <= w && w <= right_bound));
             testcases.emplace_back(h, w);
@@ -164,13 +165,11 @@ int main(int argc, char *argv[]) {
         random(i);
 
     for (int i = 1; i <= 3; i++)
-        anti_pruning(i, multiplies<int>());
+        anti_pruning(i, divides<ll>());
     for (int i = 4; i <= 6; i++)
-        anti_pruning(i, divides<int>());
-    for (int i = 7; i <= 9; i++)
-        anti_pruning(i, plus<int>());
-    for (int i = 10; i <= 12; i++)
-        anti_pruning(i, minus<int>());
+        anti_pruning(i, plus<ll>());
+    for (int i = 6; i <= 9; i++)
+        anti_pruning(i, minus<ll>());
 
     return 0;
 }
