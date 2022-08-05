@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70218" creator="Ipe 7.2.26">
-<info created="D:20190409094512" modified="D:20220722103301"/>
+<info created="D:20190409094512" modified="D:20220805102805"/>
 <preamble>\usepackage{amsmath,amssymb}</preamble>
 <ipestyle name="presentation">
 <symbol name="arrow/arc(spx)">
@@ -402,14 +402,22 @@ h
 </ipestyle>
 <page title="Missing">
 <layer name="alpha"/>
+<layer name="beta"/>
+<layer name="gamma"/>
 <view layers="alpha" active="alpha"/>
-<text layer="alpha" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="83.5492" depth="69.72" valign="top" style="itemize">\item{Find the minimum number of cuts needed so that every word is a palindrome}
+<view layers="alpha beta" active="beta"/>
+<view layers="alpha beta gamma" active="gamma"/>
+<text layer="beta" matrix="1 0 0 1 0 -96" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="83.5492" depth="69.72" valign="top" style="itemize">\item{Find the minimum number of cuts needed so that every word is a palindrome}
 
 \item{Store minimum cuts for words up to each index}
 
 \item{Store for every start and end index if a palindrome has been found there}
 
 </text>
-<text transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top">\textbf{Problem:} Find the minimum number of words so that every word is a palindrome</text>
+<text layer="alpha" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.0948" depth="22.176" valign="top">\textbf{Problem:} Find the minimum number of words so that every word is a palindrome</text>
+<text layer="gamma" matrix="1 0 0 1 0 -304" transformations="translations" pos="32 496" stroke="black" type="minipage" width="670" height="36.8592" depth="22.96" valign="top" style="itemize">\item{DP, or recursive with memoization}
+\item{Run time $O(n^2)$}
+
+</text>
 </page>
 </ipe>
