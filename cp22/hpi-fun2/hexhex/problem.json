@@ -1,0 +1,12 @@
+{
+  "description": "[Important: set Memory Limit of 5 MiB] Find the shortest path s <= 12 from root to a node in a 4-ary tree using less than 5 MB RAM.",
+  "difficulty": 3,
+  "tags": [
+    "binary search",
+    "brute force",
+    "dfs and similar",
+    "graphs",
+    "math",
+    "shortest paths"
+  ]
+}

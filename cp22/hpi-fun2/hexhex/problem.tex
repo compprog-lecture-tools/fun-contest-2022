@@ -1,0 +1,44 @@
+\input{template.tex}
+\usepackage{hyperref}
+
+\begin{document}
+
+\makeheader
+
+You are a medieval witch hunter hunting a notorious tribe of witches -- the “\underline{Hex}aflexagons”.
+Since back then they had nothing, not even a second dimension, people, including witches, lived
+on a perfect straight line segment between $0$ and $2 \cdot 10^9$. The distance is in feet (an old, obsolete unit,
+no serious country would use anymore).
+
+You start your hunt from your home at $h$. You know that the tribe's hex-address is $w$.
+In your $i$-th step you can either add, subtract, multiply or integer divide your hex-address by $p_i$,
+where $p_i$ is the $i$-th prime number.
+
+Of course, you want to catch the evil witches as fast as possible, but
+how many steps $s$ do you need to put an end to their wicked existence?
+If you need more than $12$ steps, you can be assured that
+the “\underline{Hex}aflexagons” have fled already.
+
+But there's a catch:
+RAM was quite expensive in the Middle Ages\textsuperscript{[\textcolor{blue}{Citation Needed}]},
+so you can only afford to use 5 MiB of RAM\footnote{If it happens that you need more, this may result in a \texttt{RUN-ERROR}.}.
+
+\paragraph*{Input}
+
+The first line contains a decimal integer $t$ ($1\leq t\leq 100$) the number of test cases.
+
+Each test case consists of one line containing two hexadecimal integers\footnote{You might want to use \url{https://en.cppreference.com/w/cpp/io/manip/hex} to read them.}
+$h$ and $w$ ($0 \leq h, w \leq 2\cdot 10^9$), the hex-address of your home and the hex-address of the witches, respectively, separated by a space.
+
+It is guaranteed that the sum of steps $s$ over all test cases does not exceed $200$.
+
+\paragraph*{Output}
+
+Print a single integer, the minimum number of steps needed to catch the witches.
+If you need more than $12$ steps to catch the witches, output $-1$.
+
+\begin{samples}
+  \sample{sample1}
+\end{samples}
+
+\end{document}
